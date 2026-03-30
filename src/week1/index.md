@@ -4,14 +4,14 @@
 
 In this assignment you'll implement a compiler for a small language called
 Adder, that supports 32-bit integers and three operations – `add1`, `sub1`,
-and `negate`.  There is no starter code for this assignment; you'll do it _from
+and `negate`. There is no starter code for this assignment; you'll do it _from
 scratch_ based on the instructions here.
 
 ## Setup
 
 You can start by
 
-- accepting the assignment on [github](TODO), and then
+- accepting the assignment on github, and then
 - opening the assignment CodeSpaces
 
 The necessary tools will be present in the CodeSpace.
@@ -22,15 +22,16 @@ You may also want to work on your own computer, in which case you'll need to ins
 
 You may also (depending on your system) need to install [`nasm`](https://www.nasm.us/).
 
-On my mac I used `brew install nasm`; on other systems your package manager of choice likely
-has a version. On Windows you should use [Windows Subsystem for Linux (WSL)](https://learn.microsoft.com/en-us/windows/wsl/)
+- On **Mac** I used `brew install nasm`; on other systems your package manager of choice likely
+  has a version.
+- On **Windows** you should use [Windows Subsystem for Linux (WSL)](https://learn.microsoft.com/en-us/windows/wsl/)
 
-**The assignments assume that your computer can build and run x86-64-bit
-binaries.  This is true of most (but not all) mass-market Windows and Linux
+The assignments assume that your computer can build and run x86-64-bit
+binaries. This is true of most (but not all) mass-market Windows and Linux
 laptops. Newer Macs use a different ARM architecture, _but_ can also run legacy
-x86-64-bit binaries, so those are fine as well.  You should ensure that
+x86-64-bit binaries, so those are fine as well. You should ensure that
 whatever you do to build your compiler also runs on the github codespace,
-standard environment for testing your work.**
+standard environment for testing your work.
 
 ## Rust 101
 
@@ -38,7 +39,6 @@ The first few sections of the [Rust Book](https://doc.rust-lang.org/book/ch01-00
 through installing Rust, as well. We'll assume you've gone through the
 “Programming a Guessing Game” chapter of that book before you go on, so
 writing and running a Rust program isn't too weird to you.
-
 
 ## Implementing a Compiler for Numbers
 
@@ -103,19 +103,19 @@ fn main() {
 }
 ```
 
-This file says:
+This file says the following.
 
-- We're expecting there to be a precompiled file called `libour_code` that we
-  can load and link against (we'll make it in a few steps)
-- That file should define a global function called `our_code_starts_here`. It
-  takes no arguments and returns a 64-bit integer.
-- For the `main` of this Rust program, we will call the `our_code_starts_here`
-  function in an `unsafe` block. It has to be in an `unsafe` block because Rust
-  doesn't and cannot check that `our_code_starts_here` actually takes no
-  arguments and returns an integer; it's trusting us, the programmer, to ensure
-  that, which is `unsafe` from its point of view. The `unsafe` block lets us do
-  some kinds of operations that would otherwise be compile errors in Rust.
-- Then, print the result.
+1. First, we expect there to be a precompiled file called `libour_code` that we
+   can load and link against (we'll make it in a few steps).
+2. That file should define a global function called `our_code_starts_here`. It
+   takes no arguments and returns a 64-bit integer.
+3. For the `main` of this Rust program, we will call the `our_code_starts_here`
+   function in an `unsafe` block. It has to be in an `unsafe` block because Rust
+   doesn't and cannot check that `our_code_starts_here` actually takes no
+   arguments and returns an integer; it's trusting us, the programmer, to ensure
+   that, which is `unsafe` from its point of view. The `unsafe` block lets us do
+   some kinds of operations that would otherwise be compile errors in Rust.
+4. Then, print the result.
 
 Let's next see how to build a `libour_code` file out of some x86-64 assembly
 that will work with this file. Here's a simple assembly program that has a
@@ -138,17 +138,27 @@ commands (substitute `macho64` for `elf64` on OSX and if you're on an M1/M2
 machine change the invocation to `rustc --target x86_64-apple-darwin ...`.
 You may have to run `rustup target add x86_64-apple-darwin`):
 
+**On Windows and Linux:**
+
 ```console
 $ nasm -f elf64 test/31.s -o runtime/our_code.o
 $ ar rcs runtime/libour_code.a runtime/our_code.o
-$ ls runtime
-libour_code.a          our_code.o             start.rs
 $ rustc -L runtime/ runtime/start.rs -o test/31.run
 $ ./test/31.run
 31
 ```
 
-The first command _assembles_ the assembly code to an object file. The basic
+**On MacOS:**
+
+```console
+$ nasm -f macho64 test/31.s -o runtime/our_code.o
+$ ar rcs runtime/libour_code.a runtime/our_code.o
+$ rustc --target x86_64-apple-darwin -L runtime/ runtime/start.rs -o test/31.run
+$ ./test/31.run
+31
+```
+
+The first command **assembles** the assembly code to an object file. The basic
 work there is generating the machine instructions for each assembly
 instruction, and enough information about labels like `our_code_starts_here` to
 do later linking. The `ar` command takes this object file and puts it in a
@@ -322,21 +332,22 @@ The `cargo run` command will re-run if the `.snek` file or the compiler
 (`src/main.rs`) change, and the assemble-and-link commands will re-run if the
 assembly (`.s` file) or the runtime (`runtime/start.rs`) change.
 
-
 ## The Adder Language
 
 In each of the next several assignments, we'll introduce a language that we'll
-implement.  We'll start small, and build up features incrementally.  We're
-starting with Adder, which has just a few features –numbers and three
+implement. We'll start small, and build up features incrementally. We're
+starting with Adder, which has just a few features: numbers and three
 operations.
 
 There are a few pieces that go into defining a language for us to compile:
 
-- A description of the concrete syntax – the text the programmer writes.
-- A description of the abstract syntax – how to express what the
-  programmer wrote in a data structure our compiler uses.
-- A _description of the behavior_ of the abstract syntax, so our compiler
-  knows what the code it generates should do.
+1. A description of the **concrete syntax** – the text the programmer writes.
+
+2. A description of the **abstract syntax** – how to express what the
+   programmer wrote in a data structure our compiler uses.
+
+3. A description of the **semantics** i.e. _behavior_ of the abstract syntax,
+   so our compiler knows what the code it generates should do.
 
 ### Concrete Syntax
 
@@ -383,13 +394,13 @@ tracks the contents of each field in each variant of the `enum`. Since an
 
 Values of the `Box` type always have the size of a single reference (probably
 represented as a 64-bit address on the systems we're using). The address will
-refer to an `Expr` that has already been allocated somewhere.  `Box` is one of
+refer to an `Expr` that has already been allocated somewhere. `Box` is one of
 several _smart pointer_ types whose memory are carefully, and automatically,
 memory-managed by Rust.
 
 ### Semantics
 
-A ``semantics'' describes the languages' behavior without giving all of the
+A **semantics** describes the language's behavior without giving all of the
 assembly code for each instruction.
 
 An Adder program always evaluates to a single i32.
@@ -465,7 +476,7 @@ Negate(Box::new(Add1(Box::new(Num(3)))))
 
 ## Implement an Interpreter for Adder
 
-As a warm up exercise, implement an *interpreter* for `Adder` which is to say,
+As a warm up exercise, implement an _interpreter_ for `Adder` which is to say,
 a plain `rust` function that evaluates the `Expr` datatype we defined above.
 
 ```rust
@@ -496,8 +507,6 @@ mod tests {
 
 And then you can run the test either in `vscode` or by running `cargo test` in the terminal.
 
-
-
 ## Implementing a Compiler for Adder
 
 The overall syntax for the `Adder` language admits many more features than just
@@ -511,7 +520,7 @@ We're going to design our syntax carefully to avoid thinking too much about
 parsing, though. The parenthesized style of Adder is a subset of what's called
 **s-expressions**. The Scheme and Lisp family of languages are some of the more
 famous examples of languages built in s-expressions, but recent ones like
-WebAssembly also use this syntax, and it's a common choice for language
+[WebAssembly](https://webassembly.org) also use this syntax, and it's a common choice for language
 development to simplify decision around syntax, which can become quite tricky
 and won't be our focus in this course.
 
@@ -532,7 +541,7 @@ are some s-expressions:
 (1 2 3)
 (a (b c d) e "f" "g")
 
-(hash-table ("a" 100) ("b" 1000) ("c" 37"))
+(hash-table ("a" 100) ("b" 1000) ("c" 37))
 
 (define (factorial n)
   (if (== n 1)
@@ -727,13 +736,13 @@ infrastructure added as we need it.
 ## Your TODOs
 
 1. Do the whole tutorial above, creating the project repository as you go. Write
-several tests to convince yourself that things are working as expected.
+   several tests to convince yourself that things are working as expected.
 2. Then, add support for `negate` as described in the beginning, and write several
-tests for `negate` as well.
+   tests for `negate` as well.
 3. In your terminal, demonstrate your compiler working on at least 5 different
-examples by using `cat` on a source `snek` file, then showing `make` running,
-using `cat` on the resulting `.s` file, and then running the resulting binary.
-Copy this interactino into a file called `transcript.txt`
+   examples by using `cat` on a source `snek` file, then showing `make` running,
+   using `cat` on the resulting `.s` file, and then running the resulting binary.
+   Copy this interactino into a file called `transcript.txt`
 
 Hand in your entire repository to the `01-adder` assignment on `github`.
 

@@ -3,6 +3,9 @@
 [Compiler Construction](./index.md)
 
 - [Week 1 - Adder](./week1/index.md)
+
+<!--
+
 - [Week 2 - Boa](./week2/index.md)
 - [Week 3 - Cobra](./week3/index.md)
 - [Week 5 - Diamondback](./week5/index.md)
@@ -12,3 +15,4 @@
 - [Week 10 - Harlequin](./week10a/index.md)
 - [Week 10b - Indigo](./week10b/index.md)
 
+-->
