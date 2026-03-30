@@ -34,7 +34,10 @@ course, as well as the syllabus.
 
 - **Lecture:** _CENTER 115_ Tu-Th 12:30-1:50pm
 - **Discussion:** _CENTER 115_ Fr 3:00-3:50pm
-- **Midterm Exams:** _(In Friday Discussion Section)_ **May 1** (Week 5), **May 29** (Week 9) and Monday **June 8** (finals week), 1:00-2:30pm (TBA)
+- **Midterm Exams:** _
+  - **Friday May 1** (Week 5), 3:00-3:50pm
+  - **Friday May 29** (Week 9), 3:00-3:50pm
+  - **Monday June 8** (finals week), 1:00-2:30pm (TBA)
 - **Q&A Forum:** [Piazza](https://piazza.com/ucsd/spring2026/cse231)
 
 ## Office Hours
