@@ -40,7 +40,7 @@ course, as well as the syllabus.
 ## Office Hours
 
 - Ranjit (Tu 1pm - 2pm in CSE 3110)
-- Cole (Fri 4pm - 5pm in CSE 3217)
+- Cole (TBA)
 
 ## Resources
 
