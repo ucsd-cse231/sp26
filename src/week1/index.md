@@ -573,7 +573,7 @@ created when you used `cargo new`. Make it so your `Cargo.toml` looks like this:
 [package]
 name = "adder"
 version = "0.1.0"
-edition = "2021"
+edition = "2024"
 
 [dependencies]
 sexp = "1.1.4"
