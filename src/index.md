@@ -11,6 +11,7 @@
 
 [Basics](#basics) -
 [Resources](#resources) -
+[Assignments](#assignments) -
 [Schedule](#schedule) -
 [Staff](#staff) -
 [Grading](#grading) -
@@ -34,7 +35,7 @@ course, as well as the syllabus.
 
 - **Lecture:** _CENTER 115_ Tu-Th 12:30-1:50pm
 - **Discussion:** _CENTER 115_ Fr 3:00-3:50pm
-- **Midterm Exams:** _
+- **Midterm Exams:** \_
   - **Friday May 1** (Week 5), 3:00-3:50pm
   - **Friday May 29** (Week 9), 3:00-3:50pm
   - **Monday June 8** (finals week), 1:00-2:30pm (TBA)
@@ -42,8 +43,8 @@ course, as well as the syllabus.
 
 ## Office Hours
 
-- Ranjit (Tu 1pm - 2pm in CSE 3110)
-- Cole (TBA)
+- Ranjit Jhala (Tu 1pm - 2pm in CSE 3110)
+- Cole Kurashige (TBA)
 
 ## Resources
 
@@ -59,25 +60,31 @@ Some useful resources are:
 - [UMich EECS483](https://maxsnew.com/teaching/eecs-483-fa22/)
 - [Northeastern CS4410](https://courses.ccs.neu.edu/cs4410/)
 
-## Schedule
+## Assignments
+
+| **Assignment**               | **Github Classroom**                            | **Due Date**           |
+| :--------------------------- | :---------------------------------------------- | :--------------------- |
+| [01-adder](./week1/index.md) | [link](https://classroom.github.com/a/v0zY8Ima) | Fri, April 3, 23:59:59 |
+
+## Lecture Schedule
 
 The schedule below outlines topics, due dates, and links to assignments. The
 schedule of lecture topics might change slightly, but I post a general plan so
 you can know roughly where we are headed.
 
-**Assignments** are generally due on Friday evening.
-
 ### Week 1 - Rust and Source to Assembly Conversion
 
-- [Assignment (due Friday, April 5, 23:59:59)](./week1/index.md)
-- [Assignment on Github Classroom](https://classroom.github.com/a/8_IhC3V5)
-- Reading and resources:
-  - [Tue 4/1 Handout](https://drive.google.com/file/d/1AOZ-MRYc1DYdbBlz6xkMrETaeCfHujZI/view?usp=share_link)
-  - [Thu 4/3 Handout](https://drive.google.com/file/d/1eYTybBS3QNRYkhIbsEnPCHXGACMqEJ5p/view?usp=share_link) [(pptx)](https://docs.google.com/presentation/d/1gGeC4Wp68sHLZLR6YbPAAdJk3NevdYcM/edit?usp=share_link&ouid=117453768726816085396&rtpof=true&sd=true)
-  - [Week 1 markup](./static/week1.pdf)
-  - [Rust Book Chapters 1-6](https://doc.rust-lang.org/book)
-  - [x86-64 quick reference (Stanford)](https://web.stanford.edu/class/archive/cs/cs107/cs107.1196/guide/x86-64.html)
-  - [x86-64 quick reference (Brown)](https://cs.brown.edu/courses/cs033/docs/guides/x64_cheatsheet.pdf)
+- [Assignment (due Friday, April 3, 23:59:59)](./week1/index.md)
+- [Tue Notes](./static/handout1a.pdf)
+- [Tue Markup](./static/markup1a.pdf)
+- [Thu Notes](./static/handout1b.pdf)
+- [Thu Markup](./static/markup1b.pdf)
+
+**Resources**
+
+- [Rust Book Chapters 1-6](https://doc.rust-lang.org/book)
+- [x86-64 quick reference (Stanford)](https://web.stanford.edu/class/archive/cs/cs107/cs107.1196/guide/x86-64.html)
+- [x86-64 quick reference (Brown)](https://cs.brown.edu/courses/cs033/docs/guides/x64_cheatsheet.pdf)
 
 ## Staff
 
@@ -114,7 +121,7 @@ that you can use the final exam make-up time to do this!
 ### Lectures and Exams
 
 1. We will **not podcast** lectures.
-2. We will have **worksheets** to be filled in and submitted in every lecture.
+2. We will have **worksheets** to be filled in and submitted at the end of each lecture.
 3. We have a **no-screens** policy: students must keep their devices off during lectures.
 4. We require all exams be taken on the [announced dates and times](https://ucsd-cse230.github.io/wi26/contact.html)
 
