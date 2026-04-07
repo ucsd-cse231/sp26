@@ -1,6 +1,6 @@
 ![boa](./boa.jpg)
 
-# Week 2: Boa, Due Tuesday, April 12 (Open Collaboration)
+# Week 2: Boa
 
 In this assignment you'll implement a compiler for a small language called Boa,
 that has let bindings and binary operators. The key difference between this
@@ -10,22 +10,28 @@ where we fill in exact behavior.
 
 ## Setup
 
-Get the assignment at <https://classroom.github.com/a/P5qpkKKh>. 
-This will make a private-to-you copy of the repository hosted within the course's
-organization. 
+Get the assignment at the github classroom link.
+
+**Do not forget to check your email for the link to the assignment!**
+
+If you don't see it, check your spam folder, or ask in office hours.
+
+This will make a private-to-you copy of the repository hosted within
+the course's organization.
 
 ## The Boa Language
 
 In each of the next several assignments, we'll introduce a language that we'll
-implement.  We'll start small, and build up features incrementally.  We're
+implement. We'll start small, and build up features incrementally. We're
 starting with Boa, which has just a few features – defining variables, and
 primitive operations on numbers.
 
 There are a few pieces that go into defining a language for us to compile:
-* A description of the concrete syntax – the text the programmer writes.
-* A description of the abstract syntax – how to express what the
+
+- A description of the **concrete syntax** – the text the programmer writes.
+- A description of the **abstract syntax** – how to express what the
   programmer wrote in a data structure our compiler uses.
-* A *description of the behavior* of the abstract
+- A description of the **semantics** i.e. programthe abstract
   syntax, so our compiler knows what the code it generates should do.
 
 ### Concrete Syntax
@@ -46,7 +52,7 @@ The concrete syntax of Boa is:
 <binding> := (<identifier> <expr>)
 ```
 
-Here, a `let` expression can have one *or more* bindings (that's what the
+Here, a `let` expression can have one _or more_ bindings (that's what the
 `<binding> +` notation means). `<number>`s are in base 10 and must be
 representable as an `i32`. `<identifier>`s are names and should be limited to
 alphanumeric characters, hyphens, and underscores, and should start with a
@@ -58,7 +64,6 @@ nicely readable.)
 The abstract syntax of Boa is a Rust `enum`. Note that this
 representation is different from what we used in
 [Adder](https://ucsd-cse231.github.io/sp24/week1/index.html).
-
 
 ```
 enum Op1 {
@@ -89,26 +94,26 @@ assembly code for each instruction.
 A Boa program always evaluates to a single integer.
 
 - Numbers evaluate to
-themselves (so a program just consisting of `Number(5)` should evaluate to the
-integer `5`).
+  themselves (so a program just consisting of `Number(5)` should evaluate to the
+  integer `5`).
 - Unary operator expressions perform addition or subtraction by one on
-their argument. If the result wouldn't fit in an `i32`, the program can
-have any behavior (e.g. overflow with `add1` or underflow with `sub1`).
+  their argument. If the result wouldn't fit in an `i32`, the program can
+  have any behavior (e.g. overflow with `add1` or underflow with `sub1`).
 - Binary operator expressions evaluate their arguments and combine them
-based on the operator. If the result wouldn't fit in an `i32`, the program can
-have any behavior (e.g. overflow or underflow with `+`/`-`/`*`).
+  based on the operator. If the result wouldn't fit in an `i32`, the program can
+  have any behavior (e.g. overflow or underflow with `+`/`-`/`*`).
 - Let bindings should use lexical scoping: evaluate all the binding expressions to
-values one by one, and after each, store a mapping from the given name to the
-corresponding value in both (a) the rest of the bindings, and (b) the body of
-the let expression. Identifiers evaluate to whatever their current stored
-value is.
+  values one by one, and after each, store a mapping from the given name to the
+  corresponding value in both (a) the rest of the bindings, and (b) the body of
+  the let expression. Identifiers evaluate to whatever their current stored
+  value is.
 
 There are several examples further down to make this concrete.
 
 The _compiler_ should stop and report an error if:
 
-* There is a binding list containing two or more bindings with the same name. **The error should contain the string `"Duplicate binding"`**
-* An identifier is unbound (there is no surrounding let binding for it) **The error should contain the string `"Unbound variable identifier {identifier}"` (where the actual name of the variable is substituted for `{identifier}`)**
+- There is a binding list containing two or more bindings with the same name. **The error should contain the string `"Duplicate binding"`**
+- An identifier is unbound (there is no surrounding let binding for it) **The error should contain the string `"Unbound variable identifier {identifier}"` (where the actual name of the variable is substituted for `{identifier}`)**
 
 If there are multiple errors, the compiler can report any non-empty subset of
 them.
@@ -179,6 +184,7 @@ Let(vec![("x".to_string(), Number(5))],
 ```
 
 #### More examples
+
 ```
 (sub1 5)
 # as an expr
@@ -202,14 +208,14 @@ Let(vec![("x".to_string(), Number(10)), ("y".to_string(), Number(7))],
 You've been given a starter codebase that has several pieces of
 infrastructure:
 
-* A main program (`main.rs`) that uses the parser and compiler to produce
-  assembly code from an input Boa text file.  You don't need to edit this much
+- A main program (`main.rs`) that uses the parser and compiler to produce
+  assembly code from an input Boa text file. You don't need to edit this much
   except to change how `result` is filled in.
-* A `Makefile` and a runner (`runtime/start.rs`) that are basically the same as
+- A `Makefile` and a runner (`runtime/start.rs`) that are basically the same as
   the ones from [Week 1](/week1/)
-* Extra infrastructure for running unit tests in `tests/infra` (you don't need
+- Extra infrastructure for running unit tests in `tests/infra` (you don't need
   to edit `tests/infra`, but you may enjoy reading it).
-* A test file, `tests/all_tests.rs`, which describes the _expected output_ and
+- A test file, `tests/all_tests.rs`, which describes the _expected output_ and
   _expected errors_ for `.snek` files in the `tests/` directory.
   You will add your own tests by filling in new entries in `success_tests!` and
   `failure_tests!`; we've provided a few examples. Each entry corresponds to a
@@ -237,26 +243,34 @@ pub enum Atom {
 
 Thus, an example S-expression that could be parsed into a program would be as
 follows
+
 ```
 List(vec![Atom("let"), List(vec![List(vec![Atom("x"), Atom("5")])]), Atom("x")])
 ```
+
 which corresponds to
+
 ```
 (let ((x 5)) x)
 ```
+
 in Boa or
+
 ```rust
 {
     let x = 5;
     x
 }
 ```
+
 in Rust.
 
 This should then parse to the AST
+
 ```rust
 Let(vec![("x".to_string(), Number(5))], Id("x".to_string()))
 ```
+
 which can then be compiled.
 
 Since most S-expressions are lists, you will need to check the first element of
@@ -270,6 +284,7 @@ You will, however, have to check that the string does not match any of
 the language's reserved words, such as `let`, `add1`, and `sub1`.
 
 The parsing should be implemented in
+
 ```
 fn parse_expr(s: &Sexp) -> Expr {
     todo!("parse_expr");
@@ -277,11 +292,13 @@ fn parse_expr(s: &Sexp) -> Expr {
 ```
 
 You can also implement a helper function `parse_bind`
+
 ```
 fn parse_bind(s: &Sexp) -> (String, Expr) {
     todo!("parse_bind");
 }
 ```
+
 which may be helpful for handling `let` expressions.
 
 ### Writing the Compiler
@@ -290,6 +307,7 @@ The primary task of writing the Boa compiler is simple to state: take an
 instance of the `Expr` type and turn it into a list of assembly
 instructions. Start by defining a function that compiles an expression into a
 list of instructions:
+
 ```
 fn compile_to_instrs(e: &Expr) -> Vec<Instr> {
     todo!("compile_to_instrs");
@@ -297,7 +315,7 @@ fn compile_to_instrs(e: &Expr) -> Vec<Instr> {
 ```
 
 which takes an `Expr` value (abstract syntax) and turns it into a list of
-assembly instructions, represented by the `Instr` type.  Use only the
+assembly instructions, represented by the `Instr` type. Use only the
 provided instruction types for this assignment; we will be gradually expanding
 this as the quarter progresses.
 
@@ -329,6 +347,7 @@ instruction!
 
 After that, put everything together with a `compile` function that compiles an
 expression into assembly represented by a string.
+
 ```rust
 fn compile(e: &Expr) -> String {
     todo!("compile");
@@ -340,29 +359,30 @@ fn compile(e: &Expr) -> String {
 The `Instr` type is defined in the starter code. The assembly instructions that
 you will have to become familiar with for this assignment are:
 
-* `IMov(Val, Val)` — Copies the right operand (source) into the left operand
+- `IMov(Val, Val)` — Copies the right operand (source) into the left operand
   (destination). The source can be an immediate argument, a register or a
   memory location, whereas the destination can be a register or a memory
   location.
 
   Examples:
+
   ```
     mov rax, rbx
     mov [rax], 4
   ```
 
-* `IAdd(Val, Val)` — Add the two operands, storing the result in its first
+- `IAdd(Val, Val)` — Add the two operands, storing the result in its first
   operand.
 
   Example: `add rax, 10`
 
-* `ISub(Val, Val)` — Store in the value of its first operand the result of
+- `ISub(Val, Val)` — Store in the value of its first operand the result of
   subtracting the value of its second operand from the value of its first
   operand.
 
   Example: `sub rax, 216`
 
-* `IMul(Val, Val)` — Multiply the left argument by the right argument, and
+- `IMul(Val, Val)` — Multiply the left argument by the right argument, and
   store in the left argument (typically the left argument is `rax` for us)
 
   Example: `imul rax, 4`
@@ -386,13 +406,16 @@ our_code_starts_here:
 
 To actually evaluate your assembly code, we need to link it with `runtime.rs` to
 create an executable. This is covered in the `Makefile`.
+
 ```
 $ make test/add1.run
 nasm -f elf64 test/add1.s -o runtime/our_code.o
 ar rcs runtime/libour_code.a runtime/our_code.o
 rustc -L runtime/ runtime/start.rs -o test/add1.run
 ```
+
 Finally you can run the file by executing to see the evaluated output:
+
 ```
 $ ./test/add1.run
 131
@@ -420,17 +443,16 @@ architectural decisions yourself.
 If you are struggling to get started, here are a few ideas:
 
 - Try to tackle features one at a time. For example, you might completely
-ignore let expressions at first, and just work on addition and numbers to
-start. Then you can work into subtraction, multiplication, and so on.
+  ignore let expressions at first, and just work on addition and numbers to
+  start. Then you can work into subtraction, multiplication, and so on.
 - Some features can be broken down further. For example, the let expressions
-in this assignment differ from the ones in class by having multiple variables
-allowed per let expression. However, you can first implement let for just a
-single variable (which will look quite a bit like what we did in class!) and
-then extend it for multiple bindings.
+  in this assignment differ from the ones in class by having multiple variables
+  allowed per let expression. However, you can first implement let for just a
+  single variable (which will look quite a bit like what we did in class!) and
+  then extend it for multiple bindings.
 - Use git! Whenver you're in a working state with some working tests, make a
-commit and leave a message for yourself. That way you can get back to a good
-working state later if you end up stuck.
-
+  commit and leave a message for yourself. That way you can get back to a good
+  working state later if you end up stuck.
 
 **FAQ**
 
@@ -445,7 +467,6 @@ In Boa, there's always the extra set of parens around the list.
 **Can we write additional helper functions?**
 
 Yes.
-
 
 **Do we care about the text return from panic?**
 

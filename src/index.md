@@ -62,15 +62,34 @@ Some useful resources are:
 
 ## Assignments
 
-| **Assignment**               | **Github Classroom**                            | **Due Date**           |
-| :--------------------------- | :---------------------------------------------- | :--------------------- |
-| [01-adder](./week1/index.md) | [link](https://classroom.github.com/a/v0zY8Ima) | Fri, April 3, 23:59:59 |
+| **Assignment**               | **Github Classroom**                            | **Due Date**            |
+| :--------------------------- | :---------------------------------------------- | :---------------------- |
+| [01-adder](./week1/index.md) | [link](https://classroom.github.com/a/v0zY8Ima) | Fri, April 3, 23:59:59  |
+| [02-boa](./week2/index.md)   | [link](https://classroom.github.com/a/W9pJ27oc) | Mon, April 13, 23:59:59 |
 
 ## Lecture Schedule
 
 The schedule below outlines topics, due dates, and links to assignments. The
 schedule of lecture topics might change slightly, but I post a general plan so
 you can know roughly where we are headed.
+
+### Week 2 - Binary Operators, Booleans, and Conditionals
+
+- [Assignment (due Monday, April 13, 11:59pm)](./week2/index.md)
+
+<!--
+- [Tue Notes](./static/handout2a.pdf)
+- [Tue Markup](./static/markup2a.pdf)
+- [Thu Notes](./static/handout2b.pdf)
+- [Thu Markup](./static/markup2b.pdf)
+-->
+
+- Reading and resources:
+  - [Max New on Let and the Stack](https://maxsnew.com/teaching/eecs-483-fa21/lec_let-and-stack_notes.html)
+    _Max New and Ben Lerner have done a nice job writing up notes on
+    let-bindings and the stack. They don't use exactly the same style
+    or make the same decisions as CSE231, but things are close enough
+    to be useful._
 
 ### Week 1 - Rust and Source to Assembly Conversion
 

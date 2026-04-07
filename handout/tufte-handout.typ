@@ -32,7 +32,7 @@
   )
   show heading.where(level: 1): it => text(
     font: "TeX Gyre Pagella",
-    size: 12pt,
+    size: 14pt,
     weight: "extralight",
     style: "italic",
     {
@@ -42,7 +42,7 @@
   )
   show heading.where(level: 2): it => text(
     font: "TeX Gyre Pagella",
-    size: 10pt,
+    size: 12pt,
     style: "italic",
     it.body,
   )
