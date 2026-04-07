@@ -43,8 +43,21 @@ course, as well as the syllabus.
 
 ## Office Hours
 
-- Ranjit Jhala (Tu 1pm - 2pm in CSE 3110)
-- Cole Kurashige (TBA)
+Ranjit Jhala
+
+- Tu 2pm - 3pm in CSE 3110
+
+Cole Kurashige
+
+- 2 PM Wednesday CSE third floor lobby
+- 3 PM Friday (alternating with Vivien for section)
+
+Vivien Rindisbacher
+
+- 2 pm Tuesday
+- 3 pm Friday (during Section - will do earlier in the week on exam weeks)
+
+
 
 ## Resources
 

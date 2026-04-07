@@ -15,7 +15,12 @@
   gutter: 1.3em,
   [_Program_], [_#(col2)_],
   ```rkt
-  ((+ 1 2) 3)
+  (+ 1 2)
+  ```,
+  [],
+
+  ```rkt
+  (+ (+ 1 2) 3)
   ```,
   [],
 
@@ -139,108 +144,46 @@ enum Expr {
 
 Map from vars (`x`, `y`, `z`, …)  to stack positions (1, 2, 3 …)
 
+*Problem*
+
 But what about the *sub-expressions* `(+ e1 e2)`?
 
 
-*Solution*
+#colbreak()
 
-The structure of the `let` is stack-like too!
+== Compilation Strategy: Binary Addition
 
-Maintain an `Env` that maps `Id` $arrow$ `StackPosition`
+To compile `(+ e1 e2)`
+
+1. _Compile_ `e1` into `rax`
+2. _Save_ the value of `e1`
+3. _Compile_ `e2` into `rax`
+4. _Add_ the two values.
+
+But *where* do we stash the value of `e1`?
 
 #v(1em)
-
 
 == QUIZ: Where to *store*?
 
 #examples("Stack Layout")
 
-== QUIZ
-
-Which stack position do we store `c` in this program?
-
-```rkt
-  (let (a 1)
-    (let (c
-      (let (b (add1 a))
-        add1(b)))
-    add1 c))
-```
-
-#v(2em)
-
-== Compilation Strategy: Definition
-
-To compile *definition* `(let (x e1) e2)`
-
-1. Compile `e1` using `env` (result in `rax`),
-2. Move `rax` into `[RBP - 8 * i]`
-3. Compile `e2` using `env[ x := i]`
+#v(1em)
 
 #v(1em)
 
-== Compilation Strategy: Use
-
-To compile *use* `x`
-
-1. Look up `x` in `env` to get its stack position `i`
-2. Load the value at `[RBP - 8 * i]` into `rax`
-
 #colbreak()
 
-== QUIZ: Compilation Examples
+== QUIZ: Assembly
 
 #grid(
   columns: (.5fr, 0.05fr, .5fr),
   gutter: 1em,
   [_Program_], [], [_Assembly_],
   ```rkt
-  (let (x 10)
-    (add1 x))
+  (+ (+ 1 2) (+ 3 4))
   ```,
 
-  [],
-  [
-    ```asm
-    mov rax, 10
-
-
-
-
-
-    ```
-  ],
-
-  ```rkt
-  (let (x 10)
-    (let (y (add1 x))
-      (add1 y)))
-  ```,
-  [],
-  [
-    ```asm
-    mov rax, 10
-
-
-
-
-
-
-
-
-
-
-
-    ```
-  ],
-
-  ```rkt
-  (let (a 1)
-    (let (c
-      (let (b (add1 a))
-        add1(b)))
-    add1 c))
-  ```,
   [],
   [
     ```asm
@@ -250,6 +193,19 @@ To compile *use* `x`
 
 
 
+    ```
+  ],
+
+  ```rkt
+  (let (x 10)
+    (let (y 10)
+      (+ (+ x y) 99)))
+  ```,
+  [],
+  [
+    ```asm
+    mov rax, 10
+
 
 
 
@@ -261,6 +217,40 @@ To compile *use* `x`
 
 
     ```
-
   ],
 )
+
+#v(1em)
+
+== QUIZ: Compilation Code
+
+Fill in the cases for `compile_expr` for `let` and `+`
+
+```rust
+fn compile_expr(expr: &Expr, env: &Env) -> String {
+  match expr {
+   // cases for Number, Add1, Sub1, Var
+    Expr::Let(x, e1, e2) => {
+    // 1. compute e1 into RAX
+    // 2. save RAX at the position for x
+    // 3. compute e2
+
+
+
+
+
+    }
+    Expr::Plus(e1, e2) => {
+      // 1. compute e1 into RAX
+      // 2. save RAX at TMP position
+      // 3. compute e2 into RAX
+      // 4. ADD RAX and TMP
+      )
+
+
+
+
+
+    }
+}
+```
