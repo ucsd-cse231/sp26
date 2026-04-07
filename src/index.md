@@ -73,7 +73,7 @@ The schedule below outlines topics, due dates, and links to assignments. The
 schedule of lecture topics might change slightly, but I post a general plan so
 you can know roughly where we are headed.
 
-### Week 2 - Binary Operators, Booleans, and Conditionals
+### Week 2 - Let Bindings and Binary Operators
 
 - [Assignment (due Monday, April 13, 11:59pm)](./week2/index.md)
 
