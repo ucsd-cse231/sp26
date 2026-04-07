@@ -77,9 +77,10 @@ you can know roughly where we are headed.
 
 - [Assignment (due Monday, April 13, 11:59pm)](./week2/index.md)
 
-<!--
 - [Tue Notes](./static/handout2a.pdf)
 - [Tue Markup](./static/markup2a.pdf)
+
+<!--
 - [Thu Notes](./static/handout2b.pdf)
 - [Thu Markup](./static/markup2b.pdf)
 -->
