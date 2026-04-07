@@ -6,6 +6,7 @@
 
 - [Ranjit Jhala](https://ranjitjhala.github.io) (Instructor)
 - Cole Kurashige (TA)
+- Vivien Rindisbacher (TA)
 
 (with **many thanks** to [Joe Politz](https://jpolitz.github.io) from whom much of this material is gratefully borrowed!)
 
