@@ -93,6 +93,7 @@ you can know roughly where we are headed.
 
 - [Tue Notes](./static/handout2a.pdf)
 - [Tue Markup](./static/markup2a.pdf)
+- [Code](https://github.com/ucsd-cse231/sp26-code/tree/main/week2-plus)
 
 <!--
 - [Thu Notes](./static/handout2b.pdf)
