@@ -10,10 +10,29 @@
 
 #set page(footer: context align(center, text(size: 7pt, counter(page).display("1"))))
 
+
+
+#let input_examples(col2) = grid(
+  columns: (1fr, .5fr),
+  gutter: 1.3em,
+  [_Program_], [_#(col2)_],
+
+  ```rkt
+  (add1 (add1 (add1 input)))
+  ```,
+  [],
+
+  ```rkt
+  (+ input 10 20)
+  ```,
+  [],
+)
+
 #let if_examples(col2) = grid(
   columns: (1fr, .5fr),
   gutter: 1.3em,
   [_Program_], [_#(col2)_],
+
   ```rkt
   (if true 22 33)
   ```,
@@ -65,6 +84,7 @@
 
 Next, lets add
 
+- *input* i.e. so we don't "know" result at compile-time,
 - *booleans* i.e. `true` and `false`,
 - *equality* i.e. to _compare_ values,
 - *branches* i.e. `if-then-else`,
@@ -81,9 +101,9 @@ This will teach us about
 
 ```
 <expr> := ...
+        | input                      -- user input
         | true                       -- bool `true`
         | false                      -- bool `false`
-        | input                      -- user input
         | (= <expr> <expr>)          -- equality test
         | (if <expr> <expr> <expr>)  -- if-then-else
 ```
@@ -107,6 +127,58 @@ enum Expr {
 ```
 
 #colbreak()
+
+= QUIZ: Semantics of `input`
+
+What should the semantics of `input` be?
+
+#input_examples("Result")
+
+#v(1em)
+
+= Evaluator for `input`
+
+How can we modify the `eval` function to handle `input`?
+
+```rust
+fn eval(e: &Expr,env: &Env) -> i64 {
+  match expr {
+
+    Expr::Input => ____________________________,
+
+  }
+}
+```
+
+= Runtime for `input`
+
+How can we modify the *runtime* to handle `input`?
+
+```rust
+fn main() {
+  let i: i64 = unsafe {
+    our_code_starts_here( )
+  };
+  println!("{i}")
+}
+```
+
+= Compiler for `input`
+
+How can we modify the *compiler* to handle `input`?
+
+```rust
+fn compile_expr(e: &Expr, stack: &Stack) -> String {
+
+  match expr {
+
+    Expr::Input => ____________________________,
+
+}
+```
+
+#colbreak()
+
 
 = QUIZ: Semantics
 
