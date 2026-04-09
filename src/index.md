@@ -93,12 +93,11 @@ you can know roughly where we are headed.
 
 - [Tue Notes](./static/handout2a.pdf)
 - [Tue Markup](./static/markup2a.pdf)
-- [Code](https://github.com/ucsd-cse231/sp26-code/tree/main/week2-plus)
+- [Tue Code](https://github.com/ucsd-cse231/sp26-code/tree/main/week2-plus)
 
-<!--
 - [Thu Notes](./static/handout2b.pdf)
 - [Thu Markup](./static/markup2b.pdf)
--->
+- [Thu Code](https://github.com/ucsd-cse231/sp26-code/tree/main/week2-if)
 
 - Reading and resources:
   - [Max New on Let and the Stack](https://maxsnew.com/teaching/eecs-483-fa21/lec_let-and-stack_notes.html)
