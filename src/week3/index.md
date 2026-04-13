@@ -1,6 +1,6 @@
 ![cobra](./cobra.jpg)
 
-# Week 3: Cobra, Due Friday, April 26 (Open Collaboration)
+# Week 3: Cobra, Due Friday, April 24
 
 In this assignment you'll implement a compiler for a small language called Cobra,
 which extends Boa with booleans, conditionals, variable assignment, and loops.
@@ -8,9 +8,10 @@ which extends Boa with booleans, conditionals, variable assignment, and loops.
 ## Setup
 
 
-Get the assignment at <https://classroom.github.com/a/tnyP6D51>
-This will make a private-to-you copy of the repository hosted within the course's
-organization.  
+Get the assignment at [github classroom](https://classroom.github.com/a/O-Mv26IZ)
+
+This will make a private-to-you copy of the repository hosted within the course's organization.
+
 
 ## The Cobra Language
 
