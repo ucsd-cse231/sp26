@@ -58,8 +58,6 @@ Vivien Rindisbacher
 - 2 pm Tuesday
 - 3 pm Friday (during Section - will do earlier in the week on exam weeks)
 
-
-
 ## Resources
 
 Textbook/readings: There's no official textbook, but we will link to
@@ -80,8 +78,7 @@ Some useful resources are:
 | :--------------------------- | :---------------------------------------------- | :---------------------- |
 | [01-adder](./week1/index.md) | [link](https://classroom.github.com/a/v0zY8Ima) | Fri, April 3, 23:59:59  |
 | [02-boa](./week2/index.md)   | [link](https://classroom.github.com/a/W9pJ27oc) | Mon, April 13, 23:59:59 |
-| [03-cobra](./week3/index.md)   | [link](https://classroom.github.com/a/O-Mv26IZ) | Fri, April 24, 23:59:59 | 
-
+| [03-cobra](./week3/index.md) | [link](https://classroom.github.com/a/O-Mv26IZ) | Fri, April 24, 23:59:59 |
 
 ## Lecture Schedule
 
@@ -89,17 +86,26 @@ The schedule below outlines topics, due dates, and links to assignments. The
 schedule of lecture topics might change slightly, but I post a general plan so
 you can know roughly where we are headed.
 
+### Week 3 - Let Bindings and Binary Operators
+
+- [Assignment (due Friday, April 24, 11:59pm)](./week3/index.md)
+
+- [Thu Notes](./static/handout3b.pdf)
+- [Thu Markup](./static/markup3b.pdf)
+- [Thu Sheet](./static/sheet3b.pdf)
+- [Thu Code](https://github.com/ucsd-cse231/sp26-code-new/tree/week3-set-block)
+
 ### Week 2 - Let Bindings and Binary Operators
 
 - [Assignment (due Monday, April 13, 11:59pm)](./week2/index.md)
 
 - [Tue Notes](./static/handout2a.pdf)
 - [Tue Markup](./static/markup2a.pdf)
-- [Tue Code](https://github.com/ucsd-cse231/sp26-code/tree/main/week2-plus)
+- [Tue Code](https://github.com/ucsd-cse231/sp26-code-new/tree/week2-bin)
 
 - [Thu Notes](./static/handout2b.pdf)
 - [Thu Markup](./static/markup2b.pdf)
-- [Thu Code](https://github.com/ucsd-cse231/sp26-code/tree/main/week2-if)
+- [Thu Code](https://github.com/ucsd-cse231/sp26-code-new/tree/week2-if)
 
 - Reading and resources:
   - [Max New on Let and the Stack](https://maxsnew.com/teaching/eecs-483-fa21/lec_let-and-stack_notes.html)
