@@ -2,7 +2,7 @@
 
 #let quiz(name: none, ..args, body) = task(task-prefix: "Quiz", name: name, ..args, body)
 
-#show raw.where(block: true, lang: "rkt"): it => block(
+#show raw.where(block: true, lang: "lisp"): it => block(
   stroke: 0.5pt + luma(150),
   inset: (x: 0.75em, y: 0.65em),
   radius: 2pt,
@@ -36,7 +36,7 @@
     columns: (.3fr, 0.01fr, .5fr),
     gutter: 1em,
     [_Program_], [], [_Assembly_],
-    ```rkt
+    ```lisp
     (= 10 20)
     ```,
     [],
@@ -54,7 +54,7 @@
       ```
     ],
 
-    ```rkt
+    ```lisp
     (= e1 e2)
     ```,
     [],
@@ -89,11 +89,105 @@
   ______________________________; jump to err if not-eq
 
   ```
-
-  *Update* `compile_expr` for `if`, `eq`, `+` to check tags for operands.
 ]
 
-// HEREHEREHEREHEREHERE
+#quiz(name: "Semantics of Blocks")[
+
+  #grid(
+    columns: (.4fr, .6fr),
+    gutter: 0.5em,
+    [_Program_], [_Result_],
+    ```lisp
+    (let (x 5)
+      (set! x 10))
+    ```,
+    [```lisp
+
+
+
+    ```],
+
+    ```lisp
+    (let (x 10)
+      (let (y (set! x (+ x 5)))
+        (+ x y))
+    ```,
+    [```lisp
+
+
+
+
+    ```],
+
+    ```lisp
+    (let (x 5)
+      (block
+        (set! x (+ x 100))
+        x))
+    ```,
+    [```lisp
+
+
+
+
+
+    ```],
+  )
+]
+
+#quiz(name: "Assembly for `set!` and `block`")[
+
+  Complete the assembly code for
+
+  #grid(
+    columns: (.32fr, .5fr),
+    gutter: 1em,
+    [_Program_], [_Assembly_],
+    ```lisp
+    (let (x 10)
+      (let (y (set! x (+ x 1)))
+        x)
+    ```,
+    [
+      ```asm
+      mov rax, 20
+      mov [rbp - 8.1], rax
+      mov rax, [rbp - 8.1]
+      add rax, 2
+
+      _____________________
+
+      _____________________
+
+      _____________________
+      ```
+    ],
+
+    ```lisp
+    (let (x 10)
+      (block
+        (set! x (+ x 1))
+        x
+      )
+    )
+    ```,
+    [
+      ```asm
+      mov rax, 20
+      mov [rbp - 8.1], rax
+      mov rax, [rbp - 8.1]
+      add rax, 2
+
+      _____________________
+
+      _____________________
+
+      _____________________
+      ```
+    ],
+  )
+]
+
 
 #quiz(name: "Your turn!")[
 
