@@ -86,14 +86,15 @@ The schedule below outlines topics, due dates, and links to assignments. The
 schedule of lecture topics might change slightly, but I post a general plan so
 you can know roughly where we are headed.
 
-### Week 3 - Let Bindings and Binary Operators
+
+### Week 3 - Tags and Blocks
 
 - [Assignment (due Friday, April 24, 11:59pm)](./week3/index.md)
 
 - [Thu Notes](./static/handout3b.pdf)
 - [Thu Markup](./static/markup3b.pdf)
 - [Thu Sheet](./static/sheet3b.pdf)
-- [Thu Code](https://github.com/ucsd-cse231/sp26-code-new/tree/week3-set-block)
+- [Thu Code](https://github.com/ucsd-cse231/sp26-code-new/tree/week3b)
 
 ### Week 2 - Let Bindings and Binary Operators
 
