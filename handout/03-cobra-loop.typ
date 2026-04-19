@@ -56,8 +56,8 @@ Now lets add constructs for _iteration_, specifically
 
 ```
 <expr> := ...
-        | (loop e)
-        | (break e)
+        | (loop <expr>)
+        | (break <expr>)
 ```
 
 *Idea*
