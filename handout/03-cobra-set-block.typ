@@ -44,7 +44,7 @@
 #show: doc => template(
   title: "CSE 231: Assignments and Blocks",
   author: "Ranjit Jhala",
-  date: "April 16, 2026",
+  date: "April 21, 2026",
   doc,
 )
 

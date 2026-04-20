@@ -126,8 +126,9 @@ extern snek_error
 
 
   ```,
+
   ```clojure
-  (print 42)
+  (print e)
   ```,
 
   ```
@@ -138,3 +139,30 @@ extern snek_error
 
   ```,
 )
+
+= QUIZ: Passing parameters with `rdi`
+
+_Like_ with `snek_error`
+
+- We used `rdi` to pass the param to `snek_print`
+
+_Unlike_ with `snek_error`
+
+- We're coming back!
+
+But _unlike_ with `snek_error`, we're coming back!
+
+Can you write a test that will _break_ our compiler?
+
+```clojure
+
+
+
+
+
+```
+
+= Saving RDI
+
+What were we using `rdi` for before?
+How can we save it?

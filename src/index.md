@@ -86,6 +86,17 @@ The schedule below outlines topics, due dates, and links to assignments. The
 schedule of lecture topics might change slightly, but I post a general plan so
 you can know roughly where we are headed.
 
+### Week 4 - Loops and Functions
+
+- [Tue Notes](./static/handout4a.pdf)
+- [Tue Markup](./static/markup4a.pdf)
+- [Tue Code](https://github.com/ucsd-cse231/sp26-code-new/tree/week4a)
+
+
+- [Thu Notes](./static/handout4b.pdf)
+- [Thu Markup](./static/markup4b.pdf)
+- [Thu Code](https://github.com/ucsd-cse231/sp26-code-new/tree/week4b)
+
 
 ### Week 3 - Tags and Blocks
 

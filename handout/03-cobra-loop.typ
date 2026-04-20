@@ -41,7 +41,7 @@
 #show: doc => template(
   title: "CSE 231: Loops",
   author: "Ranjit Jhala",
-  date: "April 16, 2026",
+  date: "April 21, 2026",
   doc,
 )
 
@@ -191,7 +191,7 @@ Lets _complete_ the assembly code for
   ],
 )
 
-= QUIZ: Strategy for `loop` and `break`
+= Strategy for `loop` and `break`
 
 #grid(
   columns: (.62fr, .5fr),

@@ -7,97 +7,282 @@
   zebra-fill: none,
   display-name: false,
 )
-#show raw.where(block: true): it => {
-  if it.lang == "asm" {
-    set text(size: 0.8em)
-    block(inset: (x: 0.75em, y: 0.65em), width: 100%, it)
-  } else {
-    block(inset: (x: 0.75em, y: 0.65em), width: 100%, it)
-  }
-}
+// #show raw.where(block: true): it => {
+//   if it.lang == "asm" {
+//     set text(size: 0.8em)
+//     block(inset: (x: 0.75em, y: 0.65em), width: 100%, it)
+//   } else {
+//     block(inset: (x: 0.75em, y: 0.65em), width: 100%, it)
+//   }
+// }
 
 #set page(footer: context align(center, text(size: 7pt, counter(page).display("1"))))
-
-#let examples(col2) = grid(
-  columns: (1fr, .5fr),
-  row-gutter: 0.5em,
-  column-gutter: 1.3em,
-  [_Program_], [_#(col2)_],
-
-  ```lisp
-  (let (x 5)
-    (set! x 10))
-  ```,
-  [],
-
-  {
-    ```lisp
-    (let (x 10)
-      (let (y (set! x (+ x 5)))
-        (+ x y))
-    ```
-  },
-  [],
-
-  ```lisp
-  (let (x 5)
-    (block
-      (set! x (+ x 100))
-      x))
-  ```,
-  [],
-)
-
 
 #show: doc => template(
   title: "CSE 231: Functions",
   author: "Ranjit Jhala",
-  date: "April 16, 2026",
+  date: "April 23, 2026",
   doc,
 )
 
-= Functions
+= User-defined Functions
 
-#codly(highlights: (
-  (line: 2, start: 8, end: 12, fill: yellow.lighten(0%)),
-  (line: 3, start: 5, end: 7, fill: purple.lighten(0%)),
-  (line: 4, start: 6, end: 8, fill: orange.lighten(0%)),
-  (line: 4, start: 11, end: 16, fill: green.lighten(0%)),
-  (line: 4, start: 20, end: 26, fill: blue.lighten(0%)),
-))
-```clojure
-(fun (sum n acc)
-  (if (= n 0)
-    acc
-    (sum (sub1 n) (+ acc n))))
+*Program*
 
-(sum 10 0)
+- A list of _function definitions_
+- A _main expression_
+
+```
+<prog> := <func>* <expr>
 ```
 
-= Assembly
+*Function Definitions*
 
-```asm
-fun_start_sum:
-  push rbp
-  mov rbp, rsp
-  sub rsp, 8*3
-fun_body_sum:
-  ;; << (= n 0) >>
-  cmp rax, 1
-je label_else_2
-  mov rax, [rbp + 8*3]
-  jmp label_exit_2
-label_else_2:
-  ;; << (sub1 n) >>
-  mov [rbp - 8*1], rax
-  ;; << (+ acc n) >>
-  push rax
-  mov rax, [rbp - 8*1]
-  push rax
-  call fun_start_sum
-  add rsp, 8*2
-label_exit_2:
-  mov rsp, rbp
-  pop rbp
-  ret
+- A _name_,
+- A _parameter_ (for now),
+- A _body_ expression.
+
+```
+<func> := (fun (<name> <ident>) <expr>)
+```
+
+*Expressions*
+
+- ... as before
+- plus _function calls_
+
+
+```
+<expr> := ... | (<name> <expr>)
+```
+
+
+= QUIZ: Abstract Syntax
+
+```rust
+struct Prog {
+
+
+
+}
+
+struct Defn {
+
+
+
+}
+
+enum Expr {
+
+
+
+
+}
+```
+
+= QUIZ: Semantics
+
+Fill in the result of evaluating the following programs.
+
+#grid(
+  columns: (1.2fr, .5fr),
+  gutter: 1.3em,
+  [_Program_], [_Result_],
+
+  ```clojure
+  (fun (incr n)
+    (add1 n)
+  )
+
+  (incr 100)
+  ```,
+  [
+    ```
+
+
+
+
+    ```
+  ],
+
+  ```clojure
+  (fun (fac n)
+    (if (= n 0)
+      1
+      (* n (fac (sub1 n)))
+    )
+  )
+
+  (fac 5)
+  ```,
+  [
+    ```
+
+
+
+
+    ```
+  ],
+)
+
+= Evaluation
+
+```rust
+fn eval(e: &Expr, env: &mut Env,                  )
+   -> Result<Val, Err>
+{
+  match e { // ...
+    Call1(f, arg) => {
+
+
+
+    }
+  }
+}
+```
+
+#colbreak()
+
+
+= Callers, Callees, and Frames
+
+*Caller*
+
+#image("img/stack-frame-1.png", width: 120%),
+
+*Callee*
+
+#image("img/stack-frame-1.png", width: 120%),
+
+#colbreak()
+
+= QUIZ: Assembly: Caller
+
+#grid(
+  columns: (.25fr, .5fr),
+  gutter: 1.3em,
+  [_Program_], [_Assembly_],
+
+  ```clojure
+  (incr 100)
+  ```,
+  [
+    ```asm
+    mov rax, 200
+
+
+
+
+    ```
+  ],
+
+  ```clojure
+  (f e)
+  ```,
+  [
+    ```asm
+    ; << e >>
+
+
+
+
+    ```
+  ],
+)
+
+= QUIZ: Assembly: Callee
+
+#grid(
+  columns: (.25fr, .5fr),
+  gutter: 1.3em,
+  [_Program_], [_Assembly_],
+
+  ```clojure
+  (fun (incr n)
+    (add1 n)
+  )
+  ```,
+  [
+    ```asm
+    ; setup frame
+
+
+
+    ; body
+
+
+
+    ; teardown frame
+
+
+
+
+    ```
+  ],
+)
+
+= Compiling Calls
+
+```rust
+fn compile_expr(e: &Expr) -> String {
+
+}
+```
+
+= Compiling Definitions
+
+```rust
+fn compile_defn(defn: &Defn) -> String {
+
+
+}
+```
+
+= Frame Setup (`frame_setup`)
+
+```rust
+fn frame_setup(e: &Expr) -> String {
+
+
+
+
+}
+```
+
+= Frame Teardown (`frame_teardown`)
+
+```rust
+fn frame_teardown(e: &Expr) -> String {
+
+
+
+
+}
+```
+
+= Frame Allocation
+
+How much _space_ should we allocate for a frame?
+
+How much should we float `rsp` up?
+
+
+
+```rust
+fn max_vars(e: &Expr) -> usize {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
 ```
