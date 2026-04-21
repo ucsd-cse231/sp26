@@ -46,7 +46,7 @@ course, as well as the syllabus.
 
 Ranjit Jhala
 
-- Tu 2pm - 3pm in CSE 3110
+- Wed 1pm - 2pm in CSE 3110
 
 Cole Kurashige
 
