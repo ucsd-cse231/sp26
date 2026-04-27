@@ -1,25 +1,22 @@
 ![diamondback](./diamondback.jpeg)
 
-# Week 5: Diamondback, Due Friday, May 3 (Closed Collaboration)
+# Week 5: Diamondback, Due Wednesday, May 6
 
 In this assignment you'll implement a compiler for a language called Diamondback,
 which has top-level function definitions.
 
-This assignment is [**closed to collaboration**](https://ucsd-compilers-s23.github.io/#programming).
-
 ## Setup
 
-
-Get the assignment at <https://classroom.github.com/a/20qeISvT>
+Get the assignment at [github classroom](https://classroom.github.com/a/Ns8NQztj)
 This will make a private-to-you copy of the repository hosted within the course's
-organization.  
+organization.
 
 ## The Diamondback Language
 
 ### Concrete Syntax
 
 The concrete syntax of Diamondback has a significant change from past
-languages. It distinguishes _top-level declarations_ from expressions.  The new
+languages. It distinguishes _top-level declarations_ from expressions. The new
 parts are function definitions, function calls, and the `print` unary operator.
 
 ```
@@ -47,7 +44,6 @@ parts are function definitions, function calls, and the `print` unary operator.
 <binding> := (<identifier> <expr>)
 ```
 
-
 ### Abstract Syntax
 
 You can choose the abstract syntax you use for Diamondback.
@@ -74,11 +70,11 @@ There are several examples further down to make this concrete.
 
 The _compiler_ should stop and report an error if:
 
-* There is a call to a function name that doesn't exist
-* Multiple functions are defined with the same name
-* A function's parameter list has a duplicate name
-* There is a call to a function with the wrong number of arguments
-* `input` is used in a function definition (rather than in the expression at
+- There is a call to a function name that doesn't exist
+- Multiple functions are defined with the same name
+- A function's parameter list has a duplicate name
+- There is a call to a function with the wrong number of arguments
+- `input` is used in a function definition (rather than in the expression at
   the end). It's worth thinking of that final expression as the `main` function
   or method
 
@@ -144,8 +140,8 @@ different numbers of arguments.
 
 The main new feature in Diamondback is functions. You should choose and
 implement a calling convention for these. You're welcome to use the
-“standard” x86_64 sysv as a convention, or use some of what we discussed in
-class, or choose something else entirely. Remember that when calling _runtime_
+“standard” x86*64 sysv as a convention, or use some of what we discussed in
+class, or choose something else entirely. Remember that when calling \_runtime*
 functions in Rust, the generated code needs to respect that calling convention.
 
 A compiler for Diamondback does not need guarantee safe-for-space tail calls,
@@ -178,6 +174,8 @@ example, you _could_ try to calculate the answer for these programs and
 generate a single `mov` instruction: don't do that, it doesn't demonstrate the
 learning outcomes we care about.
 
+**(optional)**
+
 ## Extension 1: Add Function Definitions to the REPL
 
 Add the ability to define functions to the REPL. Entries should be a definition
@@ -204,7 +202,7 @@ here; if control-flow reaches the else branch we know that `num` is a number
 because otherwise the `=` check would have errored, so could elide the checks
 for `(+ num -1)`; there are some similar examples in [section 2 of this
 paper](https://citeseerx.ist.psu.edu/document?repid=rep1&type=pdf&doi=e36cf5f586a8612d1bf427b8aefe5b2e92e1f43c),
-which discusses some more complex cases.  However that won't be the focus of
+which discusses some more complex cases. However that won't be the focus of
 this extension.)
 
 We _could_ save some work by doing all the tag checks before entering the
@@ -283,13 +281,14 @@ recommend implementing the required behavior.
 
   ; Just one copy of compile_opt_N in the generated code, not one per function
   compile_opt_N:
-    call compile_opt_rust_N  ; 
+    call compile_opt_rust_N  ;
     jmp rax                  ; compile_opt_N will return a function pointer!
                              ; depending on your calling convention, you may
                              ; or may not need to clean up and set up some
                              ; registers before the jmp to make the stack frame
                              ; “look right”
   ```
+
 - To get a reference to the Snek function being compiled, you can get a [raw
   pointer](https://doc.rust-lang.org/std/primitive.pointer.html) to the actual
   `Fun` definition object, and put the number of that address into the
@@ -322,10 +321,11 @@ recommend implementing the required behavior.
 - This code will likely use `alter` for two different purposes:
 
   1. First, add a new label `fast_<function-name>` with the generated optimized
-  code at _the end_ of the generated code.
+     code at _the end_ of the generated code.
   2. Then, _rewrite_ the body of `<function-name>` to have a conditional check
-  for the provided tags, and `jmp` to the `fast` or `slow` version as
-  appropriate (note that this is trivially a tail call)
+     for the provided tags, and `jmp` to the `fast` or `slow` version as
+     appropriate (note that this is trivially a tail call)
+
 - Don't forget to get the address of the generated code that it can be called!
   Future calls to `<function-name>` will use the overwritten code, but for this
   first call you need to make sure to do the call yourself.
@@ -340,4 +340,3 @@ There is a lot of thinking and debugging required here! Don't be surprised if
 this takes longer than the previous extensions; we don't have a great
 calibration of the expected pace of these, so there's no expectation that it
 takes (only) a week -- it may well take the rest of the quarter.
-

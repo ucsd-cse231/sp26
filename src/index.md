@@ -74,11 +74,12 @@ Some useful resources are:
 
 ## Assignments
 
-| **Assignment**               | **Github Classroom**                            | **Due Date**            |
-| :--------------------------- | :---------------------------------------------- | :---------------------- |
-| [01-adder](./week1/index.md) | [link](https://classroom.github.com/a/v0zY8Ima) | Fri, April 3, 23:59:59  |
-| [02-boa](./week2/index.md)   | [link](https://classroom.github.com/a/W9pJ27oc) | Mon, April 13, 23:59:59 |
-| [03-cobra](./week3/index.md) | [link](https://classroom.github.com/a/O-Mv26IZ) | Fri, April 24, 23:59:59 |
+| **Assignment**                     | **Github Classroom**                            | **Due Date**            |
+| :--------------------------------- | :---------------------------------------------- | :---------------------- |
+| [01-adder](./week1/index.md)       | [link](https://classroom.github.com/a/v0zY8Ima) | Fri, April 3, 23:59:59  |
+| [02-boa](./week2/index.md)         | [link](https://classroom.github.com/a/W9pJ27oc) | Mon, April 13, 23:59:59 |
+| [03-cobra](./week3/index.md)       | [link](https://classroom.github.com/a/O-Mv26IZ) | Fri, April 24, 23:59:59 |
+| [04-diamondback](./week4/index.md) | [link](https://classroom.github.com/a/Ns8NQztj) | Wed, May 6, 23:59:59    |
 
 ## Lecture Schedule
 
@@ -92,11 +93,9 @@ you can know roughly where we are headed.
 - [Tue Markup](./static/markup4a.pdf)
 - [Tue Code](https://github.com/ucsd-cse231/sp26-code-new/tree/week4a)
 
-
 - [Thu Notes](./static/handout4b.pdf)
 - [Thu Markup](./static/markup4b.pdf)
 - [Thu Code](https://github.com/ucsd-cse231/sp26-code-new/tree/week4b)
-
 
 ### Week 3 - Tags and Blocks
 
