@@ -87,14 +87,19 @@ The schedule below outlines topics, due dates, and links to assignments. The
 schedule of lecture topics might change slightly, but I post a general plan so
 you can know roughly where we are headed.
 
+### Worksheets
+
+
 ### Functions and Tail Calls
 
 - [Tue Notes](./static/handout4b.pdf)
 - [Tue Markup](./static/markup5a.pdf)
+- [Tue Worksheet](./static/sheet5a.pdf)
 - [Tue Code](https://github.com/ucsd-cse231/sp26-code-new/tree/week5a)
 
 - [Thu Notes](./static/handout5b.pdf)
 - [Thu Markup](./static/markup5b.pdf)
+- [Thu Worksheet](./static/sheet5b.pdf)
 - [Thu Code](https://github.com/ucsd-cse231/sp26-code-new/tree/week5b)
 
 - [Ben Lerner's Notes on Tail Calls](https://course.ccs.neu.edu/cs4410sp20/lec_tail-calls_stack_notes.html)
@@ -104,10 +109,12 @@ you can know roughly where we are headed.
 
 - [Tue Notes](./static/handout4a.pdf)
 - [Tue Markup](./static/markup4a.pdf)
+- [Tue Worksheet](./static/sheet4a.pdf)
 - [Tue Code](https://github.com/ucsd-cse231/sp26-code-new/tree/week4a)
 
 - [Thu Notes](./static/handout4b.pdf)
 - [Thu Markup](./static/markup4b.pdf)
+- [Thu Worksheet](./static/sheet4b.pdf)
 - [Thu Code](https://github.com/ucsd-cse231/sp26-code-new/tree/week4b)
 
 ### Week 3 - Tags and Blocks
@@ -116,7 +123,7 @@ you can know roughly where we are headed.
 
 - [Thu Notes](./static/handout3b.pdf)
 - [Thu Markup](./static/markup3b.pdf)
-- [Thu Sheet](./static/sheet3b.pdf)
+- [Thu Worksheet](./static/sheet3b.pdf)
 - [Thu Code](https://github.com/ucsd-cse231/sp26-code-new/tree/week3b)
 
 ### Week 2 - Let Bindings and Binary Operators
@@ -125,10 +132,12 @@ you can know roughly where we are headed.
 
 - [Tue Notes](./static/handout2a.pdf)
 - [Tue Markup](./static/markup2a.pdf)
+- [Tue Worksheet](./static/sheet2a.pdf)
 - [Tue Code](https://github.com/ucsd-cse231/sp26-code-new/tree/week2-bin)
 
 - [Thu Notes](./static/handout2b.pdf)
 - [Thu Markup](./static/markup2b.pdf)
+- [Thu Worksheet](./static/sheet2b.pdf)
 - [Thu Code](https://github.com/ucsd-cse231/sp26-code-new/tree/week2-if)
 
 - Reading and resources:
@@ -145,6 +154,8 @@ you can know roughly where we are headed.
 - [Tue Markup](./static/markup1a.pdf)
 - [Thu Notes](./static/handout1b.pdf)
 - [Thu Markup](./static/markup1b.pdf)
+- [Thu Worksheet](./static/sheet1b.pdf)
+
 
 **Resources**
 
