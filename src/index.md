@@ -87,7 +87,20 @@ The schedule below outlines topics, due dates, and links to assignments. The
 schedule of lecture topics might change slightly, but I post a general plan so
 you can know roughly where we are headed.
 
-### Week 4 - Loops and Functions
+### Functions and Tail Calls
+
+- [Tue Notes](./static/handout4b.pdf)
+- [Tue Markup](./static/markup5a.pdf)
+- [Tue Code](https://github.com/ucsd-cse231/sp26-code-new/tree/week5a)
+
+- [Thu Notes](./static/handout5b.pdf)
+- [Thu Markup](./static/markup5b.pdf)
+- [Thu Code](https://github.com/ucsd-cse231/sp26-code-new/tree/week5b)
+
+- [Ben Lerner's Notes on Tail Calls](https://course.ccs.neu.edu/cs4410sp20/lec_tail-calls_stack_notes.html)
+
+
+### Week 4 - Loops and Printing
 
 - [Tue Notes](./static/handout4a.pdf)
 - [Tue Markup](./static/markup4a.pdf)
