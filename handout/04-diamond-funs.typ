@@ -152,7 +152,7 @@ fn eval(e: &Expr, env: &mut Env,                  )
 
 *Callee*
 
-#image("img/stack-frame-1.png", width: 120%),
+#image("img/stack-frame-2.png", width: 120%),
 
 #colbreak()
 
