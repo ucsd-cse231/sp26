@@ -257,18 +257,163 @@ This program defines and uses a `let`-bound vector `p`
   [`(vec ...)`], [`0001`],
 )
 
+= QUIZ: How to ensure `x001` is valid `vec`?
 
-= TODO
+= Runtime: Allocate Heap
 
+*1. Allocate* a large chunk of memory to serve as the heap
+
+```rust
+#[repr(align(16))]
+struct AlignedHeap([u64; 100000]);
+static mut HEAP = AlignedHeap([0; 100000]);
 ```
-[week6-heap-runtime]
-- runtime
-  - alloc
-  - print
 
-[week6-heap-compile-vec]
-- compile: vec
 
-[week6-heap-compile-get]
-- compile: vec-get
+*2. Pass* a pointer to the heap to `asm` code
+
+#text(size: 0.9em)[
+  ```rust
+  #[link_name = "\x01our_code_starts_here"]
+  fn our_code_starts_here(input: i64, heap: *mut u64) -> i64;
+
+  fn main() {
+    // ...
+    let i = unsafe {
+      our_code_starts_here(input, HEAP.0.as_mut_ptr())
+    };
+    // ...
+  }
+  ```
+]
+
+= QUIZ: How does the `asm` code know _where_ the heap is?
+
+= Runtime: Printing Values
+
+```rust
+fn print_val(val: i64) {
+  if      val == FALSE  { print!("false"); }
+  else if val == TRUE   { print!("true"); }
+  else if val & 1 == 0  { print!("{}", val >> 1); }
+  else if val == NIL    { print!("nil"); }
+  else                  { print_vec(val); }
+}
+
+fn print_vec(val: i64) {
+  let ptr =(val - 1).try_into().unwrap();
+  let ptr: *const i64 =
+      std::ptr::with_exposed_provenance::<i64>(ptr);
+  let val1 = unsafe { *ptr };
+  let val2 = unsafe { *ptr.add(1) };
+  print!("(vec ");
+  print_val(val1);
+  print!(" ");
+  print_val(val2);
+  print!(")");
+}
 ```
+
+= QUIZ: Assembly for Constructor (`vec`)
+
+
+#grid(
+  columns: (0.2fr, 0.5fr),
+  gutter: 0.5em,
+  [*Program*], [*Assembly*],
+  ```clojure
+  nil
+  ```,
+  ```asm
+
+
+
+
+
+  ```,
+
+  ```clojure
+  (vec 10 100)
+  ```,
+  ```asm
+
+
+
+
+
+
+
+  ```,
+
+  ```clojure
+  (vec e1 e2)
+  ```,
+  ```asm
+
+
+
+
+
+
+
+
+  ```,
+)
+
+= QUIZ: Assembly for Accessor (`vec-get`)
+
+#grid(
+  columns: (0.4fr, 0.5fr),
+  gutter: 0.5em,
+  [*Program*], [*Assembly*],
+  ```clojure
+  (let (p (vec 10 100))
+    (vec-get p 0))
+  ```,
+  ```asm
+  ; <(vec 10 100)>
+
+
+
+
+
+
+
+  ```,
+
+  ```clojure
+  (let (p (vec 10 100))
+    (vec-get p 1))
+  ```,
+  ```asm
+  ; <(vec 10 100)>
+
+
+
+
+
+
+
+  ```,
+
+  ```clojure
+  (vec-get e idx)
+  ```,
+  ```asm
+  ; <e>
+
+
+
+
+
+
+
+  ```,
+)
+
+= How to generalize to arbitrary-length vectors?
+
+Syntax?
+
+
+Runtime representation?
