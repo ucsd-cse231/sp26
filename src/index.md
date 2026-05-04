@@ -89,73 +89,114 @@ you can know roughly where we are headed.
 
 ### Worksheets
 
+### Week 6 - Heap Data and Closures
 
-### Functions and Tail Calls
+**Tue**
 
-- [Tue Notes](./static/handout4b.pdf)
-- [Tue Markup](./static/markup5a.pdf)
-- [Tue Worksheet](./static/sheet5a.pdf)
-- [Tue Code](https://github.com/ucsd-cse231/sp26-code-new/tree/week5a)
+- [Notes](./static/handout6a.pdf)
+- [Markup](./static/markup6a.pdf)
+- [Worksheet](./static/sheet6a.pdf)
+- [Code](https://github.com/ucsd-cse231/sp26-code-new/tree/week6a)
 
-- [Thu Notes](./static/handout5b.pdf)
-- [Thu Markup](./static/markup5b.pdf)
-- [Thu Worksheet](./static/sheet5b.pdf)
-- [Thu Code](https://github.com/ucsd-cse231/sp26-code-new/tree/week5b)
+**Thu**
+
+- [Notes](./static/handout6b.pdf)
+- [Markup](./static/markup6b.pdf)
+- [Worksheet](./static/sheet6b.pdf)
+- [Code](https://github.com/ucsd-cse231/sp26-code-new/tree/week6b)
+
+**Resources**
+
+- [New/Lerner on Pairs and Tuples](https://maxsnew.com/teaching/eecs-483-fa21/lec_tuples_notes.html)
+- [New on Lambdas](https://maxsnew.com/teaching/eecs-483-fa21/lec_lambdas_notes.html)
+
+### Week 5 - Functions and Tail Calls
+
+**Tue**
+
+- [Notes](./static/handout4b.pdf)
+- [Markup](./static/markup5a.pdf)
+- [Worksheet](./static/sheet5a.pdf)
+- [Code](https://github.com/ucsd-cse231/sp26-code-new/tree/week5a)
+
+**Thu**
+
+- [Notes](./static/handout5b.pdf)
+- [Markup](./static/markup5b.pdf)
+- [Worksheet](./static/sheet5b.pdf)
+- [Code](https://github.com/ucsd-cse231/sp26-code-new/tree/week5b)
+
+**Resources**
 
 - [Ben Lerner's Notes on Tail Calls](https://course.ccs.neu.edu/cs4410sp20/lec_tail-calls_stack_notes.html)
 
-
 ### Week 4 - Loops and Printing
 
-- [Tue Notes](./static/handout4a.pdf)
-- [Tue Markup](./static/markup4a.pdf)
-- [Tue Worksheet](./static/sheet4a.pdf)
-- [Tue Code](https://github.com/ucsd-cse231/sp26-code-new/tree/week4a)
+**Tue**
 
-- [Thu Notes](./static/handout4b.pdf)
-- [Thu Markup](./static/markup4b.pdf)
-- [Thu Worksheet](./static/sheet4b.pdf)
-- [Thu Code](https://github.com/ucsd-cse231/sp26-code-new/tree/week4b)
+- [Notes](./static/handout4a.pdf)
+- [Markup](./static/markup4a.pdf)
+- [Worksheet](./static/sheet4a.pdf)
+- [Code](https://github.com/ucsd-cse231/sp26-code-new/tree/week4a)
+
+**Thu**
+
+- [Notes](./static/handout4b.pdf)
+- [Markup](./static/markup4b.pdf)
+- [Worksheet](./static/sheet4b.pdf)
+- [Code](https://github.com/ucsd-cse231/sp26-code-new/tree/week4b)
 
 ### Week 3 - Tags and Blocks
 
 - [Assignment (due Friday, April 24, 11:59pm)](./week3/index.md)
 
-- [Thu Notes](./static/handout3b.pdf)
-- [Thu Markup](./static/markup3b.pdf)
-- [Thu Worksheet](./static/sheet3b.pdf)
-- [Thu Code](https://github.com/ucsd-cse231/sp26-code-new/tree/week3b)
+**Thu**
+
+- [Notes](./static/handout3b.pdf)
+- [Markup](./static/markup3b.pdf)
+- [Worksheet](./static/sheet3b.pdf)
+- [Code](https://github.com/ucsd-cse231/sp26-code-new/tree/week3b)
 
 ### Week 2 - Let Bindings and Binary Operators
 
 - [Assignment (due Monday, April 13, 11:59pm)](./week2/index.md)
 
-- [Tue Notes](./static/handout2a.pdf)
-- [Tue Markup](./static/markup2a.pdf)
-- [Tue Worksheet](./static/sheet2a.pdf)
-- [Tue Code](https://github.com/ucsd-cse231/sp26-code-new/tree/week2-bin)
+**Tue**
 
-- [Thu Notes](./static/handout2b.pdf)
-- [Thu Markup](./static/markup2b.pdf)
-- [Thu Worksheet](./static/sheet2b.pdf)
-- [Thu Code](https://github.com/ucsd-cse231/sp26-code-new/tree/week2-if)
+- [Notes](./static/handout2a.pdf)
+- [Markup](./static/markup2a.pdf)
+- [Worksheet](./static/sheet2a.pdf)
+- [Code](https://github.com/ucsd-cse231/sp26-code-new/tree/week2-bin)
 
-- Reading and resources:
-  - [Max New on Let and the Stack](https://maxsnew.com/teaching/eecs-483-fa21/lec_let-and-stack_notes.html)
-    _Max New and Ben Lerner have done a nice job writing up notes on
-    let-bindings and the stack. They don't use exactly the same style
-    or make the same decisions as CSE231, but things are close enough
-    to be useful._
+**Thu**
+
+- [Notes](./static/handout2b.pdf)
+- [Markup](./static/markup2b.pdf)
+- [Worksheet](./static/sheet2b.pdf)
+- [Code](https://github.com/ucsd-cse231/sp26-code-new/tree/week2-if)
+
+**Resources**
+
+- [Max New on Let and the Stack](https://maxsnew.com/teaching/eecs-483-fa21/lec_let-and-stack_notes.html)
+  _Max New and Ben Lerner have done a nice job writing up notes on
+  let-bindings and the stack. They don't use exactly the same style
+  or make the same decisions as CSE231, but things are close enough
+  to be useful._
 
 ### Week 1 - Rust and Source to Assembly Conversion
 
 - [Assignment (due Friday, April 3, 23:59:59)](./week1/index.md)
-- [Tue Notes](./static/handout1a.pdf)
-- [Tue Markup](./static/markup1a.pdf)
-- [Thu Notes](./static/handout1b.pdf)
-- [Thu Markup](./static/markup1b.pdf)
-- [Thu Worksheet](./static/sheet1b.pdf)
 
+**Tue**
+
+- [Notes](./static/handout1a.pdf)
+- [Markup](./static/markup1a.pdf)
+
+**Thu**
+
+- [Notes](./static/handout1b.pdf)
+- [Markup](./static/markup1b.pdf)
+- [Worksheet](./static/sheet1b.pdf)
 
 **Resources**
 
