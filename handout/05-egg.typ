@@ -287,7 +287,7 @@ static mut HEAP = AlignedHeap([0; 100000]);
   ```
 ]
 
-= QUIZ: How does the `asm` code know _where_ the heap is?
+= QUIZ: How does `asm` know _where_ heap is?
 
 = Runtime: Printing Values
 
