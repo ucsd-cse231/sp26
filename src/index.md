@@ -79,7 +79,8 @@ Some useful resources are:
 | [01-adder](./week1/index.md)       | [link](https://classroom.github.com/a/v0zY8Ima) | Fri, April 3, 23:59:59  |
 | [02-boa](./week2/index.md)         | [link](https://classroom.github.com/a/W9pJ27oc) | Mon, April 13, 23:59:59 |
 | [03-cobra](./week3/index.md)       | [link](https://classroom.github.com/a/O-Mv26IZ) | Fri, April 24, 23:59:59 |
-| [04-diamondback](./week4/index.md) | [link](https://classroom.github.com/a/Ns8NQztj) | Wed, May 6, 23:59:59    |
+| [04-diamondback](./week4/index.md) | [link](https://classroom.github.com/a/Ns8NQztj) | Fri, May 8, 23:59:59    |
+| [05-egg-eater](./week67/index.md)  | [link](https://classroom.github.com/a/Zcs4Nbim) | Fri, May 15, 23:59:59   |
 
 ## Lecture Schedule
 
