@@ -68,7 +68,8 @@ A Diamondback program starts by evaluating the `<expr>` at the end of the
 
 There are several examples further down to make this concrete.
 
-The _compiler_ should stop and report an error if:
+The _compiler_ should stop and report an error containing the string 
+`"compile-time error"`, as in the reference implementation below, if:
 
 - There is a call to a function name that doesn't exist
 - Multiple functions are defined with the same name
