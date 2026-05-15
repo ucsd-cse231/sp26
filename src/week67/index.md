@@ -17,40 +17,48 @@ functions, so you can start from code from class.
 
 You should add the following features:
 
-1. Some mechanism for heap-allocation of an _arbitrary number_ of values. That
-   is, the `(vec <expr> <expr>)` from class would _not_ be sufficient because it
-   only supports two positions. The easiest thing might be to add tuples with any
-   number of positions in the constructor (e.g. `(vec <expr>+)`).
-
 ```
-(vec <expr> <expr> <expr> ... <expr>)
-```
-
-2. An expression for _lookup_ that allows computed indexed access. That is, you
-   should have an expression like
-
-```
-(vec-get <expr> <expr>)
+<expr>
+  ::= ...
+    | nil
+    | (vec <expr> <expr> <expr> ... <expr>)
+    | (vec-get <expr> <expr>)
 ```
 
-where the first expression evaluates to a _vec_ and the second
-evaluates to a _number_, and the value at that index is returned.
+1. A `nil` construct, that is a special constant that can represent
+   an _empty vector_; `nil` should be considered _distinct_ from all
+   other vectors, so `(= nil (vec ...))` should evaluate to `false`.
+   For simplicity, you might as well make _other_ comparisons like
+   `(= nil 3)`, `(= nil true)`, `(= nil false)`, _also_ evaluate to
+   _false_, but we will not test this;
 
-This expression _must_ report a dynamic error if an **out-of-bounds**
-index is given.
+2. An extension `(vec ...)` for heap-allocation of an _arbitrary non-zero number_ of values.
+   This is a _generalization_ of the `(vec <expr> <expr>)` from class. (The mechanism from
+   class by itself is _not_ be sufficient because it only supports two-element vectors).
+   The easiest thing might be to add tuples with any number of positions in the constructor
+   (e.g. `(vec <expr>+)`);
 
-3. If a heap-allocated value is the result of a program or printed by `print`,
+3. An expression for _lookup_ that allows computed indexed access.
+   That is, in `(vec-get <expr> <expr>)` the first expression evaluates
+   to a _vec_ and the second evaluates to a _number_, and the value at
+   that index is returned. This expression _must_ report a dynamic error
+   if an **out-of-bounds** index is given;
+
+4. If a heap-allocated value is the result of a program or printed by `print`,
    all of its contents should be printed in some format that makes it clear which
    values are part of the same heap data. For example, in the output all the
    values associated with a particular location may be printed as `(vec ...)`
-   as in the sample tests (see below).
+   as in the sample tests (see below);
 
-4. You should be able to _detect_ when out-of-memory occurs; your language
+5. You should be able to _detect_ when out-of-memory occurs; your language
    should be able to allocate at least a few thousands of words, but if it
    runs out of space, it should exit with a message `"out of heap space"`.
 
-5. Any other features needed to express the programs listed in the section on
-   required tests below.
+6. Any other features needed to express the programs listed in the section on
+   required tests below (we will _not require_ implementing `vec-len` and `vec-set` but
+   of course, you are most welcome, or even encouraged to do so.)
+
+7. As before the `input` value will, as before only be a number or boolean.
 
 The following features are explicitly optional and **not** required:
 
