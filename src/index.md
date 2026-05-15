@@ -90,7 +90,24 @@ you can know roughly where we are headed.
 
 ### Worksheets
 
-### Week 6 - Heap Data and Closures
+### Week 7 - Closures
+
+**Tue**
+
+- [Notes](./static/handout7a.pdf)
+- [Markup](./static/markup7a.pdf)
+- [Worksheet](./static/sheet7a.pdf)
+- [Code](https://github.com/ucsd-cse231/sp26-code-new/tree/week7a)
+
+**Thu**
+
+- [Notes](./static/handout7b.pdf)
+- [Markup](./static/markup7b.pdf)
+- [Worksheet](./static/sheet7b.pdf)
+- [Code](https://github.com/ucsd-cse231/sp26-code-new/tree/week7b)
+
+
+### Week 6 - Heap Data 
 
 **Tue**
 
