@@ -102,12 +102,12 @@ you can know roughly where we are headed.
 **Thu**
 
 - [Notes](./static/handout7b.pdf)
+- [Notes with code](./static/handout7b-full.pdf)
 - [Markup](./static/markup7b.pdf)
 - [Worksheet](./static/sheet7b.pdf)
 - [Code](https://github.com/ucsd-cse231/sp26-code-new/tree/week7b)
 
-
-### Week 6 - Heap Data 
+### Week 6 - Heap Data
 
 **Tue**
 
