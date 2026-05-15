@@ -42,7 +42,8 @@ You should add the following features:
    That is, in `(vec-get <expr> <expr>)` the first expression evaluates
    to a _vec_ and the second evaluates to a _number_, and the value at
    that index is returned. This expression _must_ report a dynamic error
-   if an **out-of-bounds** index is given;
+   if an **out-of-bounds** index is given, or if either the first expression
+   is _not_ a `vec` OR the second expression is not a number.
 
 4. If a heap-allocated value is the result of a program or printed by `print`,
    all of its contents should be printed in some format that makes it clear which
