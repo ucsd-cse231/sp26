@@ -89,7 +89,22 @@ The schedule below outlines topics, due dates, and links to assignments. The
 schedule of lecture topics might change slightly, but I post a general plan so
 you can know roughly where we are headed.
 
-### Worksheets
+
+### Week 8 - Garbage Collection
+
+**Tue**
+
+- [Notes](./static/handout7b.pdf) (contd. from Week7)
+- [Markup](./static/markup8a.pdf)
+- [Worksheet](./static/sheet8a.pdf)
+
+**Thu**
+
+- [Notes](./static/gc.pdf)
+- [Markup](./static/markup8b.pdf)
+- [Worksheet](./static/sheet8b.pdf)
+
+
 
 ### Week 7 - Closures
 
