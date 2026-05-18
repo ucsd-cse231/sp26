@@ -119,7 +119,7 @@
     columns: (0.23fr, 0.3fr),
     gutter: 1em,
     [
-      #image("img/gc4.png", width: 100%)
+      #image("img/gc4.png", width: 90%)
     ],
     [
       What is the value of `l` at the point indicated by the red arrow?
@@ -148,7 +148,7 @@
 ]
 
 #quiz(name: "What should be printed?")[
-  #image("img/gc6.png", width: 40%)
+  #image("img/gc6.png", width: 47%)
 ]
 
 #quiz(name: "Your turn!")[
