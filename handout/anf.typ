@@ -102,8 +102,7 @@ enum Exp {
 }
 ```
 
-The language, defined by `Exp`, has integers, variables, binary operators,
-and let-binders. For example, the source expression above corresponds to:
+For example, the source expression above corresponds to:
 
 ```rust
 // ((2 + 3) * (12 - 4)) * (7 + 8)
@@ -126,7 +125,7 @@ we must pin down what ANF _is_. Our informal description was:
 *Immediate Values:*
 "_constants or variable lookups whose values can be loaded with a single machine instruction_"
 
-*ANF Values:*
+*ANF Expressions:*
 "_each call or primitive operation's arguments are *immediate* values, i.e. constants or variable lookups_"
 
 #margin-note([

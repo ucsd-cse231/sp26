@@ -108,13 +108,15 @@ you can know roughly where we are headed.
 -->
 
 
-### Week 8 - Garbage Collection
+### Week 8 - Closures (contd.) + Garbage Collection
 
 **Tue**
 
 - [Notes](./static/handout7b.pdf) (contd. from Week7)
 - [Markup](./static/markup8a.pdf)
 - [Worksheet](./static/sheet8a.pdf)
+- [Code](https://github.com/ucsd-cse231/sp26-code-new/tree/week8a) 
+- [Markdown](./static/lec8a.md)
 
 **Thu**
 

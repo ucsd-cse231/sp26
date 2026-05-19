@@ -46,7 +46,8 @@
   course: smallcaps[CSE 231 Spring 2026],
   title: "Worksheet 8A",
   authors: (
-    (name: "NAME: _________________________ ", id: "SID: _________________________________"),
+    (name: "NAME _________________________ ", id: ""),
+    (name: "SID _________________________ ", id: ""),
   ),
   info-box-enabled: false,
   score-box-enabled: false,
@@ -68,7 +69,6 @@
     push rbp
     mov rbp, rsp
     sub rsp, 8*3
-
     ; load free variables ... from where?
 
     ___________________________________________
@@ -112,16 +112,12 @@
     mov rax, r11
 
     add r11, _________________ ; how much?
-
     add rax, 5
-
     ```,
   )
 ]
 
-#quiz(name: "Call using Closure")[
-  Fill in the assembly for the call `(inc 99)` where `inc` is a closure.
-
+#quiz(name: "Fill in the Asm for `(inc 99)`")[
   ```asm
   ___________________________________________ ; push the args
 
@@ -191,5 +187,5 @@
 
   What is something you found confusing in today's lecture (or earlier)?
 
-  #rect(width: 100%, height: 4cm, stroke: 0.5pt)
+  #rect(width: 100%, height: 5cm, stroke: 0.5pt)
 ]

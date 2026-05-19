@@ -9,19 +9,17 @@
 )
 
 
-#let show-asm-toggle = false
+#let show-toggle = false
 
 #show raw.where(block: true): it => {
   if it.lang == "asm" {
-    // set text(size: 0.8em)
     block(width: 100%, it)
-  } else if it.lang == "asm-toggle" and show-asm-toggle {
+  } else if it.lang == "asm-toggle" and show-toggle {
     let lines = it.text.split("\n")
     let new-lines = lines.map(line => if line.starts-with(";; ") { line.slice(3) } else { line })
     let new-text = new-lines.join("\n")
     set text(size: 1.25em)
     block(width: 100%, raw(new-text, lang: "asm", block: true))
-    // raw(it.text, lang: "asm", block: true)
   } else if it.lang == "asm-toggle" {
     set text(size: 1.25em)
     let lines = it.text.split("\n")
@@ -201,12 +199,141 @@ Yikes, how to optimize without _names_?
 
 = Register Optimization Pipeline
 
-Lets change the compiler's _pipeline_ for register allocation.
+Change the compiler with 3 new steps.
 
 #image("img/pipeline2.png", width: 120%)
-
-Optimzation via three new steps:
 
 1. *Transform* to ANF _intermediate representation_,
 2. *Allocation* of variables to _registers_,
 3. *Compile* using _allocation_.
+
+= Administrative Normal Form (ANF) Transform
+
+- *Immediate:* _constants or variable lookups_ whose values
+  can be loaded with a single machine instruction
+
+- *ANF:* every call or prim-op's arguments are _immediate_.
+
+Step 1 transforms `(+ (+ (* 5 5) 1) (+ (* 6 6) 1))` to ANF
+
+```clojure
+(let ((n (* 5 5))
+      (m (* 6 6))
+      (x (+ n 1))
+      (y (+ m 1)))
+    (+ x y))
+```
+
+Lets look at these steps _backwards_ starting with Step 3 (compilation), then Step 2 (allocation), and finally, ANF transform lecture.
+
+= Step 3: Allocation (Assigning Vars to Registers)
+
+== Registers: Fast Storage for Variables
+
+Some fixed set of registers that we can use to store variables.
+
+```rust
+enum Reg {
+    RAX, RBX, RCX, RDX,
+    R8, R9, R10, R11, ...
+}
+```
+
+== Locations: Where to Store a Variable
+
+A `Loc` is a _location_ where a variable can be stored,
+- a _register_ or
+- a _stack offset_
+
+```rust
+pub enum Loc {
+  /// Register
+  Reg(Reg),
+
+  /// Stack local:  [rbp - 8 * offset]
+  Stack(i32),
+}
+```
+
+== Allocation: Mapping Variables to Locations
+
+An `Alloc` is a mapping from variable names to `Loc`:
+
+```rust
+pub struct Alloc(HashMap<String, Loc>);
+```
+
+== Computing an Allocation
+
+How to compute `Alloc` for a given function body (`Expr`)?
+
+*Key idea: Conflict Graph* graph:
+
+#image("img/pipeline3.png", width: 120%)
+
+
+#text(red)[*HEREHEREHEREHEREHEREHEREHERE*]
+
+
+= Step 2: Compilation
+
+== Use Allocated Registers (not only `rax`)
+
+Suppose that
+
+- `imm1` and `imm2` _immediate_ values,
+- `Alloc` maps `imm1` to `<imm1>` and `imm2` to `<imm2>`,
+- we want to compile `(+ imm1 imm2)` to `<dst>`.
+
+How to compile ANF code using the `Alloc` mapping?
+
+#margin-note[What if `dst` is on the stack? What if `dst` is a register?]
+#grid(
+  columns: (.82fr, 1fr),
+  gutter: 1em,
+  [_ANF Code_], [_Compiled Asm_],
+  ```clojure
+  (+ imm1 imm2)
+  ```,
+  ```asm-toggle
+  ;; mov rax, <imm1>
+  ;; add rax, <imm2>
+  ;; mov <dst>, rax
+
+
+  ```,
+
+  ```clojure
+  (let ((a0 92))
+        (a1 (+ a0 1))
+        (a2 (+ a1 1))
+        (a3 (+ a2 1))
+        (a4 (+ a3 1))
+        (a5 (+ a4 1)))
+    a5)
+  ```,
+  ```asm-toggle
+  ; ALLOC a0...a5 --> rax
+  ;; mov rax, 92
+  ;; add rax, 1
+  ;; add rax, 1
+  ;; add rax, 1
+  ;; add rax, 1
+
+
+  ```,
+)
+
+== Saving Registers
+
+_Callee_ functions can overwrite _caller_ registers!
+
+#margin-note[
+  Starter code does "callee save"; beware calls into _runtime_.
+]
+
+*1. Callee saves* Each function saves & restores all of the registers it uses; callers do not have to store anything.
+
+*2. Caller saves* Each caller saves & restores all of the registers it uses; callees do not have to store anything.
+
+*3. Hybrid* Combine the two options; some registers are _caller-saved_ others are _callee-saved_

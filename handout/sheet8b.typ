@@ -46,7 +46,8 @@
   course: smallcaps[CSE 231 Spring 2026],
   title: "Worksheet 8B",
   authors: (
-    (name: "NAME: _________________________ ", id: "SID: _________________________________"),
+    (name: "NAME _________________________ ", id: ""),
+    (name: "SID _________________________ ", id: ""),
   ),
   info-box-enabled: false,
   score-box-enabled: false,
