@@ -249,7 +249,6 @@ A `Loc` is a _location_ where a variable can be stored,
 pub enum Loc {
   /// Register
   Reg(Reg),
-
   /// Stack local:  [rbp - 8 * offset]
   Stack(i32),
 }
@@ -267,12 +266,192 @@ pub struct Alloc(HashMap<String, Loc>);
 
 How to compute `Alloc` for a given function body (`Expr`)?
 
-*Key idea: Conflict Graph* graph:
-
 #image("img/pipeline3.png", width: 120%)
 
+*Step 1:* Build _conflict graph_ over function variables
 
-#text(red)[*HEREHEREHEREHEREHEREHEREHERE*]
+*Step 2:* Color variables so _adjacent vars have different_ colors.
+
+#colbreak()
+
+== 1. Conflict Graph
+
+Undirected graph where:
+
+- *Vertices* are _variables_
+- *Edges* between `x`, `y` if both _must be available at same time_
+
+#v(1em)
+
+== QUIZ: Fill in the Conflict Graphs
+
+#grid(
+  columns: (.7fr, 1fr),
+  gutter: 1em,
+  [_Program_], [_Conflict Graph_],
+  ```clojure
+  (let ((a0 92))
+        (a1 (+ a0 1))
+        (a2 (+ a1 1))
+        (a3 (+ a2 1))
+        (a4 (+ a3 1))
+        (a5 (+ a4 1)))
+    a5)
+  ```,
+  ```asm-toggle
+  ;; a0        a1
+
+  ;; a2        a3
+
+  ;; a4        a5
+
+
+
+  ```,
+
+  ```clojure
+  (let ((n (* 5 5))
+        (m (* 6 6))
+        (x (+ n 1))
+        (y (+ m 1)))
+      (+ x y))
+
+  ```,
+  [
+    ```asm-toggle
+    ;; n --- m
+    ;;   \ / |
+    ;;    ╳  |
+    ;;   / \ |
+    ;; y --- x
+
+    ```
+  ],
+)
+
+== 2. Coloring
+
+- Label each _vertex_ with a *color* (register)
+- Ensuring *adjacent* vertices have *different* colors.
+
+#margin-note[
+  What if we _require_ $n$ colors, but only _have_ $r < n$ registers?
+  *_Spill_* the remaining $n - r$ variables onto the stack!
+]
+
+#v(1em)
+#grid(
+  columns: (.4fr, .3fr, .3fr),
+  gutter: 1em,
+  [_Program_], [_Conflict Graph_], [_Coloring_],
+  ```clojure
+  (let ((n (5 * 5))
+        (m (6 * 6))
+        (x (n + 1))
+        (y (m + 1))
+        (z (x + y))
+        (k (z * z))
+        (g (k + 5)))
+    (+ k 3))
+
+
+  ```,
+  [
+    ```asm-toggle
+    n --- m
+      \ / |
+       ╳  |
+      / \ |
+    y --- x
+    |   /
+    |  /
+    | /
+    z -- k -- g
+    ```
+  ],
+  [
+    ```
+    VAR       REG
+    -------------
+    n   ---->
+    m   ---->
+    x   ---->
+    y   ---->
+    z   ---->
+    k   ---->
+    g   ---->
+    ```
+  ],
+)
+
+
+
+= Conflict Graph from Live Variables
+
+We _stared_ at the code to find "conflicts". How to _automate_?
+
+Vars `{x1...xn}` are *live for* `e` if we _need_ the values of `x1`...`xn` to evaluate `e`.
+
+1. Identify *live variables* at each point,
+2. Conflicts between *pairs of concurrently live* variables.
+
+
+== QUIZ: Live Variables
+
+Lets identify the live/conflicts in the quiz above.
+
+```clojure
+                          ;      LIVE Variables
+
+                          ;
+(let (a0 92)
+                          ;
+ (let (a1 (+ a0 1))
+                          ;
+  (let (a2 (+ a1 1))
+                          ;
+   (let (a3 (+ a2 1))
+                          ;
+    (let (a4 (+ a3 1))
+                          ;
+     (let (a5 (+ a4 1))
+                          ;
+        a5))))))
+```
+
+
+```clojure
+                          ;      LIVE Variables
+
+                          ;
+(let (n (* 5 5))
+                          ;
+ (let (m (* 6 6))
+                          ;
+  (let (x (+ n 1))
+                          ;
+   (let (y (+ m 1))
+                          ;
+      (+ x y)))))
+```
+
+Similar to *free variables* for closure (but not quite same...)
+
+== Implementing `live` in your compiler
+
+Your compiler will implement a function
+
+```rust
+fn live(
+ graph: &mut ConflictGraph, /// graph of edges
+ e: &Expr,                  /// expression to analyze
+ binds: &HashSet<String>,   /// let-binds outside e
+ params: &HashSet<String>,  /// funparams (on stack)
+ out: &HashSet<String>,     /// vars "LIVE" after `e`
+) -> HashSet<String>        /// vars "LIVE" *before*
+```
+
+`graph` is `mut`: Add _conflict edges_ while traversing `e`.
 
 
 = Step 2: Compilation
