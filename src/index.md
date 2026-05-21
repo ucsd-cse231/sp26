@@ -113,6 +113,7 @@ you can know roughly where we are headed.
 **Tue**
 
 - [Notes](./static/handout7b.pdf) (contd. from Week7)
+- [Notes with code](./static/handout7b-full.pdf)
 - [Markup](./static/markup8a.pdf)
 - [Worksheet](./static/sheet8a.pdf)
 - [Code](https://github.com/ucsd-cse231/sp26-code-new/tree/week8a) 
