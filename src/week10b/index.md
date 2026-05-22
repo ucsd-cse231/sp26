@@ -25,7 +25,7 @@ pub const REGISTERS: [Reg; 8] = [
 ];
 ```
 
-(We will write R1...R8 below instead of the actual register name, for simplicity.)
+(We will write `R1`...`R8` below instead of the actual register name, for simplicity.)
 
 The main change you will deal with is that local variables are stored in
 the above `REGISTERS` as much as possible.  The details are below.
@@ -180,10 +180,10 @@ that works?
 
 
 ```clojure
-(let ((n (* 5 5))
-      (m (* 6 6))
-      (x (+ n 1))
-      (y (+ m 1)))
+(let* ((n (* 5 5))
+       (m (* 6 6))
+       (x (+ n 1))
+       (y (+ m 1)))
   (+ x y)
 )
 ```
@@ -341,7 +341,7 @@ It should
 
 1. find out how many colors are needed for the given graph, (by calling `self.color()`),
 and then
-2. produce aenvironment with the following constraints:
+2. produce an environment with the following constraints:
 
 - Variables given the same color by the coloring should be mapped to the same
   location in the environment, and variables mapped to different colors should
@@ -359,12 +359,12 @@ and then
 For example, given the code
 
 ```clojure
-(let ((b 4)
-      (x 10)
-      (i (if true
+(let* ((b 4)
+       (x 10)
+       (i (if true
             (let (z 11) (+ z b))
             (let (y 9)  (+ y 1))))
-      (a (+ 5 i)))
+       (a (+ 5 i)))
   (+ a x))
 ```
 
@@ -462,7 +462,7 @@ that looks like
       k))
 ```
 
-populate it with the long loop at the beginning of the writeup above, and run:
+Populate it with the long loop at the beginning of the writeup above, and run:
 
 ```
 $ NUM_REGS=3 make tests/longloop.run
@@ -472,7 +472,7 @@ And this will trigger the build for `longloop` with just 3 registers.  This can
 be fun for testing the performance of long-running programs with different
 numbers of registers available.  Setting `NUM_REGS` to `0` somewhat emulates
 the performance of our past compilers, since it necessarily allocates all
-variables on the stack (but still uses the live/conflict analysis to agressively
+variables on the stack (but still uses the live/conflict analysis to aggressively
 reuse the same stack slot for multiple variables.)
 
 **With 3 registers**

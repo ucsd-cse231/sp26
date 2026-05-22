@@ -71,7 +71,7 @@
 
     ],
     [
-      #image("img/gc1.png", width: 70%)
+      #image("img/gc1.png", width: 60%)
     ],
   )
 
@@ -140,16 +140,16 @@
     columns: (1fr, 1fr),
     gutter: 1em,
     [
-      #image("img/gc5.png", width: 90%)
+      #image("img/gc5.png", width: 80%)
     ],
     [
-      #image("img/gc7.png", width: 90%)
+      #image("img/gc7.png", width: 80%)
     ],
   )
 ]
 
 #quiz(name: "What should be printed?")[
-  #image("img/gc6.png", width: 47%)
+  #image("img/gc6.png", width: 40%)
 ]
 
 #quiz(name: "Your turn!")[

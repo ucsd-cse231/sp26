@@ -1,11 +1,11 @@
 ![gardener](https://cdn.britannica.com/15/220215-050-B1C41241/Common-Garter-Snake.jpg)
 
-# Week 8-9: Gardener (Garbage Collection) (Closed Collaboration)
+# Week 8-9: Gardener (Garbage Collection)
 
 In this assignment you'll implement garbage collection for a language called 
 `Gardener` which uses our design for heap allocation.
 
-**Starter Code in [github classroom](https://classroom.github.com/a/MJpCDHE7))**
+**Starter Code in [github classroom](https://classroom.github.com/a/PM4fnr3Y)**
 
 ## Setup
 
@@ -13,7 +13,7 @@ For this assignment, you will (as in previous assignments) submit both a
 compiler and a runtime.
 
 Since garbage collection is a **runtime feature**, we provide a working
-Gardener compiler for you: ([github classroom](https://classroom.github.com/a/MJpCDHE7)).
+Gardener compiler for you.
 
 If you use the starter code, you'll only have to modify the runtime.
 However, feel free to instead update your own Egg-Eater compiler to match the Gardener spec.
@@ -336,7 +336,7 @@ specific categories where we encourage you to share:
   test repo**] below. Have test cases case you think will break your
   classmates' GCs? Test cases that helped you fix a bug? Cool programs you just
   want to share? Make a PR! We'll merge in the pull requests every day or two.
-- You may share (publicly on PIAZZ or otherwise) diagrams or other
+- You may share (publicly on PIAZZA or otherwise) diagrams or other
   representations of the heap + stack at various stages in garbage collection
   to understand examples
 

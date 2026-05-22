@@ -82,6 +82,8 @@ Some useful resources are:
 | [04-diamondback](./week4/index.md)  | [link](https://classroom.github.com/a/Ns8NQztj) | Fri, May 8, 23:59:59    |
 | [05-egg-eater](./week67/index.md)   | [link](https://classroom.github.com/a/Zcs4Nbim) | Mon, May 18, 23:59:59   |
 | [06-fer-de-lance](./week8/index.md) | [link](https://classroom.github.com/a/yxcnCqeO) | Fri, May 22, 23:59:59   |
+| [07-gardener](./week8/index.md) | [link](https://classroom.github.com/a/PM4fnr3Y) | Mon, June 1, 23:59:59   |
+| [09-indigo](./week10b/index.md) | [link](https://classroom.github.com/a/90hvqgOf) | Friday, June 12, 23:59:59   |
 
 ## Lecture Schedule
 
