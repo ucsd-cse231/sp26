@@ -276,7 +276,9 @@ remote/in-person:
 Your grade will be calculated from **assignments**, **exams** and **worksheets**.
 
 - **(8-9) Assignments [30%]** are given periodically, typically at one or two week intervals.
-  On each you'll get a score from 0-3 (Incomplete/No Pass, Low Pass, Pass, High Pass).
+  ~~On each you'll get a score from 0-3 (Incomplete/No Pass, Low Pass, Pass, High Pass).~~
+  We will just use the raw scores in the assignments to avoid any unfairness due to 
+  rounding.
 
 - **(2/3) Midterm Exams [50%]** There are three exams in the course,
   one in week 5 and one in week 9, given in the Friday discussion sections,
