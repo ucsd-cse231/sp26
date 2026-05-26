@@ -69,7 +69,7 @@ You can write recursive functions as
 (f fac input)
 ```
 
-For a longer example, see [map.snek](tests/lam-map.snek) [fold.snek](tests/lam-fold.snek)
+For a longer example, see [lam-map.snek](https://github.com/ucsd-cse231/06-fer-de-lance/blob/main/tests/lam-map.snek) and [fold.snek](https://github.com/ucsd-cse231/06-fer-de-lance/blob/main/tests/lam-fold.snek).
 
 ## Semantics
 
