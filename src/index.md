@@ -91,7 +91,6 @@ The schedule below outlines topics, due dates, and links to assignments. The
 schedule of lecture topics might change slightly, but I post a general plan so
 you can know roughly where we are headed.
 
-<!--
 
 ### Week 9 - Register Allocation and ANF Normal Forms
 
@@ -106,8 +105,6 @@ you can know roughly where we are headed.
 - [Notes](./static/handout9b.pdf)
 - [Markup](./static/markup9b.pdf)
 - [Worksheet](./static/sheet9b.pdf)
-
--->
 
 
 ### Week 8 - Closures (contd.) + Garbage Collection
