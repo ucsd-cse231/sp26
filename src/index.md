@@ -121,7 +121,7 @@ you can know roughly where we are headed.
 **Thu**
 
 - [Notes](./static/gc.pdf)
-- [Markup](./static/markup8b.pdf)
+- [Markup (same as Week9 Tue)](./static/markup9a.pdf)
 - [Worksheet](./static/sheet8b.pdf)
 
 
