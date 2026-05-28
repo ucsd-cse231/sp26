@@ -224,9 +224,9 @@ Step 1 transforms `(+ (+ (* 5 5) 1) (+ (* 6 6) 1))` to ANF
     (+ x y))
 ```
 
-Lets look at these steps _backwards_ starting with Step 3 (compilation), then Step 2 (allocation), and finally, ANF transform lecture.
+Lets look at these steps _backwards_ starting with Step 2 (allocation), then Step 3 (compilation), _after which_ we will circle back to (Step 1) ANF transformation.
 
-= Step 3: Allocation (Assigning Vars to Registers)
+= Step 2: Allocation (Assigning Vars to Registers)
 
 == Registers: Fast Storage for Variables
 
@@ -454,7 +454,7 @@ fn live(
 `graph` is `mut`: Add _conflict edges_ while traversing `e`.
 
 
-= Step 2: Compilation
+= Step 3: Compilation
 
 == Use Allocated Registers (not only `rax`)
 
