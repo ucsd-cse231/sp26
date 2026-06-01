@@ -74,16 +74,16 @@ Some useful resources are:
 
 ## Assignments
 
-| **Assignment**                      | **Github Classroom**                            | **Due Date**            |
-| :---------------------------------- | :---------------------------------------------- | :---------------------- |
-| [01-adder](./week1/index.md)        | [link](https://classroom.github.com/a/v0zY8Ima) | Fri, April 3, 23:59:59  |
-| [02-boa](./week2/index.md)          | [link](https://classroom.github.com/a/W9pJ27oc) | Mon, April 13, 23:59:59 |
-| [03-cobra](./week3/index.md)        | [link](https://classroom.github.com/a/O-Mv26IZ) | Fri, April 24, 23:59:59 |
-| [04-diamondback](./week4/index.md)  | [link](https://classroom.github.com/a/Ns8NQztj) | Fri, May 8, 23:59:59    |
-| [05-egg-eater](./week67/index.md)   | [link](https://classroom.github.com/a/Zcs4Nbim) | Mon, May 18, 23:59:59   |
-| [06-fer-de-lance](./week8/index.md) | [link](https://classroom.github.com/a/yxcnCqeO) | Mon, May 25, 23:59:59   |
-| [07-gardener](./week89/index.md) | [link](https://classroom.github.com/a/PM4fnr3Y) | Wed, June 3, 23:59:59   |
-| [08-indigo](./week10b/index.md) | [link](https://classroom.github.com/a/90hvqgOf) | Friday, June 12, 23:59:59   |
+| **Assignment**                      | **Github Classroom**                            | **Due Date**              |
+| :---------------------------------- | :---------------------------------------------- | :------------------------ |
+| [01-adder](./week1/index.md)        | [link](https://classroom.github.com/a/v0zY8Ima) | Fri, April 3, 23:59:59    |
+| [02-boa](./week2/index.md)          | [link](https://classroom.github.com/a/W9pJ27oc) | Mon, April 13, 23:59:59   |
+| [03-cobra](./week3/index.md)        | [link](https://classroom.github.com/a/O-Mv26IZ) | Fri, April 24, 23:59:59   |
+| [04-diamondback](./week4/index.md)  | [link](https://classroom.github.com/a/Ns8NQztj) | Fri, May 8, 23:59:59      |
+| [05-egg-eater](./week67/index.md)   | [link](https://classroom.github.com/a/Zcs4Nbim) | Mon, May 18, 23:59:59     |
+| [06-fer-de-lance](./week8/index.md) | [link](https://classroom.github.com/a/yxcnCqeO) | Mon, May 25, 23:59:59     |
+| [07-gardener](./week89/index.md)    | [link](https://classroom.github.com/a/PM4fnr3Y) | Wed, June 3, 23:59:59     |
+| [08-indigo](./week10b/index.md)     | [link](https://classroom.github.com/a/90hvqgOf) | Friday, June 12, 23:59:59 |
 
 ## Lecture Schedule
 
@@ -91,8 +91,21 @@ The schedule below outlines topics, due dates, and links to assignments. The
 schedule of lecture topics might change slightly, but I post a general plan so
 you can know roughly where we are headed.
 
+### Week 10 - ANF Normal Forms and Type Inference
 
-### Week 9 - Register Allocation and ANF Normal Forms
+**Tue**
+
+- [Notes](./static/handout10a.pdf)
+- [Markup](./static/markup10a.pdf)
+- [Worksheet](./static/sheet10a.pdf)
+
+**Thu**
+
+- [Notes](./static/handout10b.pdf)
+- [Markup](./static/markup10b.pdf)
+- [Worksheet](./static/sheet10b.pdf)
+
+### Week 9 - Register Allocation
 
 **Tue**
 
@@ -106,7 +119,6 @@ you can know roughly where we are headed.
 - [Markup](./static/markup9b.pdf)
 - [Worksheet](./static/sheet9b.pdf)
 
-
 ### Week 8 - Closures (contd.) + Garbage Collection
 
 **Tue**
@@ -115,7 +127,7 @@ you can know roughly where we are headed.
 - [Notes with code](./static/handout7b-full.pdf)
 - [Markup](./static/markup8a.pdf)
 - [Worksheet](./static/sheet8a.pdf)
-- [Code](https://github.com/ucsd-cse231/sp26-code-new/tree/week8a) 
+- [Code](https://github.com/ucsd-cse231/sp26-code-new/tree/week8a)
 - [Markdown](./static/lec8a.md)
 
 **Thu**
@@ -123,8 +135,6 @@ you can know roughly where we are headed.
 - [Notes](./static/gc.pdf)
 - [Markup (same as Week9 Tue)](./static/markup9a.pdf)
 - [Worksheet](./static/sheet8b.pdf)
-
-
 
 ### Week 7 - Closures
 
@@ -274,7 +284,7 @@ Your grade will be calculated from **assignments**, **exams** and **worksheets**
 
 - **(8-9) Assignments [30%]** are given periodically, typically at one or two week intervals.
   ~~On each you'll get a score from 0-3 (Incomplete/No Pass, Low Pass, Pass, High Pass).~~
-  We will just use the raw scores in the assignments to avoid any unfairness due to 
+  We will just use the raw scores in the assignments to avoid any unfairness due to
   rounding.
 
 - **(2/3) Midterm Exams [50%]** There are three exams in the course,
