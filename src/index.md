@@ -39,7 +39,7 @@ course, as well as the syllabus.
 - **Midterm Exams:** \_
   - **Friday May 1** (Week 5), 3:00-3:50pm
   - **Friday May 29** (Week 9), 3:00-3:50pm
-  - **Monday June 8** (finals week), 1:00-2:30pm (TBA)
+  - **Monday June 8** (finals week), 1:00-2:30pm (CENTER 115)
 - **Q&A Forum:** [Piazza](https://piazza.com/ucsd/spring2026/cse231)
 
 ## Office Hours

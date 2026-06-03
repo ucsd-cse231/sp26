@@ -69,7 +69,7 @@ are *immediate* values, i.e. constants or variable lookups whose values can
 be loaded with a single machine instruction.
 
 ```clojure
-((2 + 3) * (12 - 4)) * (7 + 8)
+(* (* (+ 2 3) (- 12 4)) (+ 7 8))
 ```
 
 == QUIZ: What is the A-Normal Form of the above?
@@ -105,7 +105,7 @@ enum Exp {
 For example, the source expression above corresponds to:
 
 ```rust
-// ((2 + 3) * (12 - 4)) * (7 + 8)
+// (* (* (+ 2 3) (- 12 4)) (+ 7 8))
 fn exp0() -> Exp {
   bin(Mul, bin(
             Mul,
@@ -140,7 +140,6 @@ We can encode these as Rust predicates `is_imm` and `is_anf`
 
 ```rust
 impl Exp {
-  #[spec(fn(&Exp[@e]) -> bool[e.imm])]
   fn is_imm(&self) -> bool {
     match self {
       Var(_) => true,
@@ -150,7 +149,6 @@ impl Exp {
     }
   }
 
-  #[spec(fn(&Exp[@e]) -> bool[e.anf])]
   fn is_anf(&self) -> bool {
     match self {
       Var(_) => true,
@@ -314,7 +312,7 @@ impl Exp {
 Recall that our goal is to convert expressions like
 
 ```clojure
-((2 + 3) * (12 - 4)) * (7 + 8)
+(* (* (+ 2 3) (- 12 4)) (+ 7 8))
 ```
 
 into a let-bound expression of the form
@@ -348,8 +346,8 @@ where `v1` and `v2` are immediate, and each `ai` is ANF.
 
 The key requirement is a way to *force* arbitrary _argument expressions_ like `e1` into *a pair*:
 
-- a vector of bindings `[(x1, a1), ..., (xn, an)]` where each `ai` is `Anf`, and
-- an immediate expression `v1` of type `Imm`.
+- a *vector of bindings* `[(x1, a1), ..., (xn, an)]` where each `ai` is `Anf`, and
+- an *immediate expression* `v1` of type `Imm`.
 
 so `e1` is _equivalent_ to `(let (x1 a1) ... (let (xn an) v1))`.
 
