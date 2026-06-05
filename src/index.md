@@ -95,13 +95,13 @@ you can know roughly where we are headed.
 
 **Tue**
 
-- [Notes](./static/handout10a.pdf)
+- [Notes: Type Inference](./static/handout10a.pdf)
 - [Markup](./static/markup10a.pdf)
 - [Worksheet](./static/sheet10a.pdf)
 
 **Thu**
 
-- [Notes](./static/handout10b.pdf)
+- [Notes: ANF](./static/handout10b.pdf)
 - [Markup](./static/markup10b.pdf)
 - [Worksheet](./static/sheet10b.pdf)
 
@@ -109,13 +109,13 @@ you can know roughly where we are headed.
 
 **Tue**
 
-- [Notes](./static/handout9a.pdf)
-- [Markup](./static/markup9a.pdf)
+- [Notes: Register Allocation](./static/handout9b.pdf)
+- [Markup](./static/markup9b.pdf)
 - [Worksheet](./static/sheet9a.pdf)
 
 **Thu**
 
-- [Notes](./static/handout9b.pdf)
+- [Notes: Register Allocation](./static/handout9b.pdf)
 - [Markup](./static/markup9b.pdf)
 - [Worksheet](./static/sheet9b.pdf)
 
